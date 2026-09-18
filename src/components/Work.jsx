@@ -216,7 +216,7 @@ export default function Work() {
                 </div>
               </div>
 
-              <div>
+              {/* <div>
                 <a
                   href={project.link}
                   target="_blank"
@@ -238,7 +238,7 @@ export default function Work() {
                 >
                   View GitHub Repository →
                 </a>
-              </div>
+              </div> */}
 
               {/* Card Footer: Role & Diagonal Arrow */}
               <div className="pt-3.5 mt-3 border-t border-[#ECE4FA] flex justify-between items-center gap-2">
