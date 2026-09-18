@@ -96,7 +96,7 @@ export default function Experience() {
     {
       id: "foundation",
       type: "education",
-      badge: "FOUNDATION DIPLOMA",
+      badge: "FOUNDATION",
       role: "Computing Foundation",
       organization: "APIIT Sri Lanka",
       location: "Colombo, Sri Lanka",
@@ -123,7 +123,7 @@ export default function Experience() {
         "Achieved top-tier academic distinction with straight 'A' grades in all 9 registered subjects.",
         "Demonstrated exceptional discipline, analytical problem solving, and consistent academic diligence."
       ],
-      tags: ["9 A's Distinction", "Mathematics", "Science", "English", "Information Technology"]
+      tags: ["9 A's Distinction", "Mathematics", "Science", "English", "Sinhala"]
     }
   ];
 

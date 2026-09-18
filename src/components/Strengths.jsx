@@ -43,22 +43,22 @@ export default function Strengths() {
 
   const compactProjects = [
     {
-      name: "Urban Harvest Hub",
+      name: "Urban Harvest PWA",
       stack: "PWA • React • Node.js • MySQL",
       role: "Developer & QA",
       desc: "PWA platform connecting sustainable events, workshops and community initiatives."
     },
     {
-      name: "TrincoBites",
+      name: "Urban Harvest 101",
       stack: "React Native • Node.js • MySQL",
       role: "Developer & QA",
       desc: "Food delivery mobile app with real-time order tracking and restaurant management."
     },
     {
-      name: "Pharmacy POS System",
-      stack: "React • Node.js • MySQL • JWT",
+      name: "Bloomy Twist — Handmade Flower Shop (Demo)",
+      stack: "HTML • Tailwind CSS (CDN) • Vanilla JavaScript",
       role: "Developer & QA",
-      desc: "Pharmacy management system with billing, inventory, and customer management."
+      desc: "A modern, responsive demo web app for a handmade flower shop called Bloomy Twist."
     },
     {
       name: "Supplier Management System",
