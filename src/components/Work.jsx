@@ -20,6 +20,8 @@ export default function Work() {
         "Progressive Web App connecting local communities to urban farming workshops, sustainable harvest events, and eco-initiatives.",
       fullDetails:
         "Architected as an offline-capable PWA with dynamic event registration, geo-based harvest listings, and community workshops. Implemented comprehensive manual test suites, verified service worker caching, and validated responsive layouts across iOS and Android viewports.",
+      link : "https://urban-harvest-101.vercel.app",
+      repoLink: "https://github.com/urban-harvest-hub",
       tech: ["PWA", "React", "Node.js", "MySQL", "Tailwind CSS"],
       qaHighlights: [
         "Service worker caching & offline access verification",
@@ -39,6 +41,7 @@ export default function Work() {
       fullDetails:
         "Developed a responsive e-commerce demo with product catalog, shopping cart, and checkout flow. Conducted functional testing on order processing, discount calculations, and low-bandwidth scenarios. Validated cross-browser compatibility and mobile responsiveness.",
       link: "https://bollom-twiat-your-flower-shop.netlify.app/",
+      repoLink: "https://github.com/code-oshi123/flower-shop.git", 
       tech: ["HTML", "Tailwind CSS (CDN)", "Vanilla JavaScript"],
       qaHighlights: [
         "Real-time order state transition validation",
@@ -49,32 +52,36 @@ export default function Work() {
     },
     {
       id: "03",
-      category: "systems",
-      title: "Pharmacy POS System",
+      category: "website",
+      title: " Urban Harvest Hub",
       role: "Developer & QA",
       tagline: "Inventory & Prescription Billing Platform",
       description:
-        "Enterprise pharmacy management system with automated inventory stock tracking, customer invoicing, and medicine batch expiry management.",
+        "A modern, responsive Single Page Application (SPA) for a sustainable lifestyle platform that connects eco-conscious communities with eco-friendly products, educational workshops, and local community events.",
       fullDetails:
-        "Engineered desktop-friendly pharmacy POS dashboard handling high-volume daily sales, prescription batches, and inventory reorders. Conducted strict security testing on JWT authentication, role-based permissions, and automated stock deduction triggers.",
-      tech: ["React", "Node.js", "MySQL", "JWT", "REST APIs"],
+        "Urban Harvest Hub is a sustainable lifestyle web platform designed to promote eco-friendly living by providing Eco-friendly products,Educational workshops, Community events , Real-time weather information , Multi-language support (English & Sinhala), Dark/Light mode toggle",
+      link: "https://urban-harvst-hub.vercel.app/",
+      repoLink: "https://github.com/code-oshi123/Urban_Harvst_Hub.git",
+      tech: ["React 18", "Vite", "React Router DOM", "Axios", "Tailwind CSS" , "OpenWeather API "],
       qaHighlights: [
         "JWT token expiry & unauthorized route access testing",
-        "Automated stock level deduction concurrency testing",
-        "Prescription invoice calculation & tax rate verification",
+        "Form input validation & error message verification",
+        "Multi-language translation & localization verification",
       ],
       image: project03,
     },
     {
       id: "04",
-      category: "web",
+      category: "system",
       title: "Supplier Management System",
-      role: "Developer & QA",
+      role: "QA & Developer & PM & BA",
       tagline: "Procurement Analytics & Vendor Tracking",
       description:
         "Web application for enterprise supplier onboarding, performance feedback tracking, and vendor procurement SLA monitoring.",
       fullDetails:
         "Built a vendor management portal offering procurement analytics, supplier rating scorecards, and contract renewal alerts. Tested API endpoints using Postman, verified CSV report export schemas, and confirmed role-based access control.",
+      link: "nestle-dms-frontend.vercel.app",
+      repoLink: "https://github.com/code-oshi123/nestle-dms-frontend.git",
       tech: ["React", "Node.js", "MySQL", "Postman", "Chart.js"],
       qaHighlights: [
         "Postman API payload validation for vendor endpoints",
@@ -221,6 +228,18 @@ export default function Work() {
                 </a>
               </div>
 
+              <div>
+                <a
+                  href={project.repoLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="text-[10.5px] font-semibold text-[#5D3EA8] hover:text-[#8B5CF6] transition-colors"
+                >
+                  View GitHub Repository →
+                </a>
+              </div>
+
               {/* Card Footer: Role & Diagonal Arrow */}
               <div className="pt-3.5 mt-3 border-t border-[#ECE4FA] flex justify-between items-center gap-2">
                 <span className="text-[10.5px] font-semibold text-[#3B1C54]/80">
@@ -337,6 +356,24 @@ export default function Work() {
                  hover:bg-[#4C3090] transition-colors"
                   >
                     Visit Live Website ↗
+                  </a>
+                </div>
+              )}
+
+              {activeProjectModal.repoLink && (
+                <div className="pt-2">
+                  <a
+                    href={activeProjectModal.repoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-2
+                 px-5 py-2.5 rounded-full
+                 bg-[#CBC3E3] text-white
+                 text-xs font-semibold
+                 hover:bg-[#4C3090] transition-colors"
+                  >
+                    Visit GitHub Repository ↗
                   </a>
                 </div>
               )}
