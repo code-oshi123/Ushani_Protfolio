@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import project01 from '../assets/project_card_01.png';
-import project02 from '../assets/project_card_02.png';
-import project03 from '../assets/project_card_03.png';
-import project04 from '../assets/project_card_04.png';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import project01 from "../assets/project_card_01.png";
+import project02 from "../assets/project_card_02.png";
+import project03 from "../assets/project_card_03.png";
+import project04 from "../assets/project_card_04.png";
 
 export default function Work() {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -16,15 +16,17 @@ export default function Work() {
       title: "Urban Harvest Hub",
       role: "Developer & QA",
       tagline: "Sustainable Community & Harvest Platform",
-      description: "Progressive Web App connecting local communities to urban farming workshops, sustainable harvest events, and eco-initiatives.",
-      fullDetails: "Architected as an offline-capable PWA with dynamic event registration, geo-based harvest listings, and community workshops. Implemented comprehensive manual test suites, verified service worker caching, and validated responsive layouts across iOS and Android viewports.",
+      description:
+        "Progressive Web App connecting local communities to urban farming workshops, sustainable harvest events, and eco-initiatives.",
+      fullDetails:
+        "Architected as an offline-capable PWA with dynamic event registration, geo-based harvest listings, and community workshops. Implemented comprehensive manual test suites, verified service worker caching, and validated responsive layouts across iOS and Android viewports.",
       tech: ["PWA", "React", "Node.js", "MySQL", "Tailwind CSS"],
       qaHighlights: [
         "Service worker caching & offline access verification",
         "Form input boundary value and validation testing",
-        "Cross-device mobile UI/UX and touch event testing"
+        "Cross-device mobile UI/UX and touch event testing",
       ],
-      image: project01
+      image: project01,
     },
     {
       id: "02",
@@ -32,16 +34,18 @@ export default function Work() {
       title: "Bloomy Twist — Handmade Flower Shop (Demo)",
       role: "Developer & QA",
       tagline: "Local flower market & E-commerce demo",
-      description: "Cross-platform web application for local users with ordering, browsing, and purchasing handmade flower arrangements from Bloomy Twist.",
-      fullDetails: "Developed a responsive e-commerce demo with product catalog, shopping cart, and checkout flow. Conducted functional testing on order processing, discount calculations, and low-bandwidth scenarios. Validated cross-browser compatibility and mobile responsiveness.",
-      link : "https://bollom-twiat-your-flower-shop.netlify.app/",
+      description:
+        "Cross-platform web application for local users with ordering, browsing, and purchasing handmade flower arrangements from Bloomy Twist.",
+      fullDetails:
+        "Developed a responsive e-commerce demo with product catalog, shopping cart, and checkout flow. Conducted functional testing on order processing, discount calculations, and low-bandwidth scenarios. Validated cross-browser compatibility and mobile responsiveness.",
+      link: "https://bollom-twiat-your-flower-shop.netlify.app/",
       tech: ["HTML", "Tailwind CSS (CDN)", "Vanilla JavaScript"],
       qaHighlights: [
         "Real-time order state transition validation",
         "Cart price calculation & edge case discount testing",
-        "Low-bandwidth & mobile responsiveness validation"
+        "Low-bandwidth & mobile responsiveness validation",
       ],
-      image: project02
+      image: project02,
     },
     {
       id: "03",
@@ -49,15 +53,17 @@ export default function Work() {
       title: "Pharmacy POS System",
       role: "Developer & QA",
       tagline: "Inventory & Prescription Billing Platform",
-      description: "Enterprise pharmacy management system with automated inventory stock tracking, customer invoicing, and medicine batch expiry management.",
-      fullDetails: "Engineered desktop-friendly pharmacy POS dashboard handling high-volume daily sales, prescription batches, and inventory reorders. Conducted strict security testing on JWT authentication, role-based permissions, and automated stock deduction triggers.",
+      description:
+        "Enterprise pharmacy management system with automated inventory stock tracking, customer invoicing, and medicine batch expiry management.",
+      fullDetails:
+        "Engineered desktop-friendly pharmacy POS dashboard handling high-volume daily sales, prescription batches, and inventory reorders. Conducted strict security testing on JWT authentication, role-based permissions, and automated stock deduction triggers.",
       tech: ["React", "Node.js", "MySQL", "JWT", "REST APIs"],
       qaHighlights: [
         "JWT token expiry & unauthorized route access testing",
         "Automated stock level deduction concurrency testing",
-        "Prescription invoice calculation & tax rate verification"
+        "Prescription invoice calculation & tax rate verification",
       ],
-      image: project03
+      image: project03,
     },
     {
       id: "04",
@@ -65,37 +71,40 @@ export default function Work() {
       title: "Supplier Management System",
       role: "Developer & QA",
       tagline: "Procurement Analytics & Vendor Tracking",
-      description: "Web application for enterprise supplier onboarding, performance feedback tracking, and vendor procurement SLA monitoring.",
-      fullDetails: "Built a vendor management portal offering procurement analytics, supplier rating scorecards, and contract renewal alerts. Tested API endpoints using Postman, verified CSV report export schemas, and confirmed role-based access control.",
+      description:
+        "Web application for enterprise supplier onboarding, performance feedback tracking, and vendor procurement SLA monitoring.",
+      fullDetails:
+        "Built a vendor management portal offering procurement analytics, supplier rating scorecards, and contract renewal alerts. Tested API endpoints using Postman, verified CSV report export schemas, and confirmed role-based access control.",
       tech: ["React", "Node.js", "MySQL", "Postman", "Chart.js"],
       qaHighlights: [
         "Postman API payload validation for vendor endpoints",
         "Data filtering, sorting, and pagination test cases",
-        "SLA status calculation boundary condition checks"
+        "SLA status calculation boundary condition checks",
       ],
-      image: project04
-    }
+      image: project04,
+    },
   ];
 
-  const filteredProjects = selectedCategory === "all"
-    ? projects
-    : projects.filter(p => p.category === selectedCategory);
+  const filteredProjects =
+    selectedCategory === "all"
+      ? projects
+      : projects.filter((p) => p.category === selectedCategory);
 
   return (
-    <section 
-      id="work" 
+    <section
+      id="work"
       className="py-10 sm:py-14 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto relative z-10"
     >
       {/* Floating Sparkles in Work Section */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <motion.div 
+        <motion.div
           className="absolute top-1/4 left-6 text-themeAccent/25 text-2xl select-none"
           animate={{ opacity: [0.2, 0.8, 0.2], scale: [0.8, 1.2, 0.8] }}
           transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
         >
           ✦
         </motion.div>
-        <motion.div 
+        <motion.div
           className="absolute bottom-1/4 right-8 text-[#C4B2FF]/40 text-2xl select-none"
           animate={{ y: [0, -10, 0], opacity: [0.3, 0.9, 0.3] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
@@ -114,7 +123,8 @@ export default function Work() {
             Selected Work <span className="text-[#8B5CF6]">✦</span>
           </h2>
           <p className="text-xs sm:text-sm text-[#2D2633]/70 max-w-md">
-            Click any project card below to inspect testing scenarios, architecture, and engineering details.
+            Click any project card below to inspect testing scenarios,
+            architecture, and engineering details.
           </p>
         </div>
 
@@ -124,15 +134,15 @@ export default function Work() {
             { id: "all", label: "All Projects" },
             { id: "web", label: "🌐 Web & PWA" },
             { id: "mobile", label: "📱 Mobile Apps" },
-            { id: "systems", label: "💻 Systems" }
+            { id: "systems", label: "💻 Systems" },
           ].map((tab) => (
             <button
               key={tab.id}
               onClick={() => setSelectedCategory(tab.id)}
               className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 cursor-pointer ${
                 selectedCategory === tab.id
-                  ? 'bg-[#5D3EA8] text-white shadow-md scale-105'
-                  : 'bg-white text-[#3B1C54] border border-[#ECE4FA] hover:border-[#8B5CF6]/50'
+                  ? "bg-[#5D3EA8] text-white shadow-md scale-105"
+                  : "bg-white text-[#3B1C54] border border-[#ECE4FA] hover:border-[#8B5CF6]/50"
               }`}
             >
               {tab.label}
@@ -156,7 +166,6 @@ export default function Work() {
               onClick={() => setActiveProjectModal(project)}
             >
               <div className="space-y-3.5">
-                
                 {/* Number Badge & Mockup Preview Container */}
                 <div className="relative h-40 rounded-2xl bg-white border border-[#EDE4FA] overflow-hidden flex items-center justify-center p-2 shadow-inner">
                   <span className="absolute top-2.5 left-2.5 z-10 w-6 h-6 rounded-full bg-[#5D3EA8] text-white font-bold text-[10px] flex items-center justify-center font-sans select-none shadow-xs group-hover:scale-110 transition-transform">
@@ -167,9 +176,9 @@ export default function Work() {
                     QA &amp; Dev
                   </span>
 
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
+                  <img
+                    src={project.image}
+                    alt={project.title}
                     className="w-full h-full object-cover rounded-xl group-hover:scale-108 transition-transform duration-500"
                   />
                 </div>
@@ -178,7 +187,9 @@ export default function Work() {
                 <div className="space-y-1.5">
                   <h3 className="text-base font-serif text-[#3B1C54] font-bold group-hover:text-[#5D3EA8] group-hover:translate-x-1.5 transition-all duration-300 leading-snug flex items-center gap-1.5">
                     <span>{project.title}</span>
-                    <span className="opacity-0 group-hover:opacity-100 text-[#8B5CF6] text-xs transition-opacity duration-300">✦</span>
+                    <span className="opacity-0 group-hover:opacity-100 text-[#8B5CF6] text-xs transition-opacity duration-300">
+                      ✦
+                    </span>
                   </h3>
                   <p className="text-[11.5px] text-[#2D2633]/75 leading-relaxed line-clamp-3 min-h-[48px]">
                     {project.description}
@@ -188,7 +199,7 @@ export default function Work() {
                 {/* Tech Badges */}
                 <div className="flex flex-wrap gap-1 pt-1">
                   {project.tech.map((tag) => (
-                    <span 
+                    <span
                       key={tag}
                       className="text-[9px] font-semibold text-[#3B1C54]/80 bg-white border border-[#E8DDFD] px-2 py-0.5 rounded-md uppercase tracking-wider"
                     >
@@ -199,10 +210,11 @@ export default function Work() {
               </div>
 
               <div>
-                <a 
-                  href={project.link} 
-                  target="_blank" 
+                <a
+                  href={project.link}
+                  target="_blank"
                   rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
                   className="text-[10.5px] font-semibold text-[#5D3EA8] hover:text-[#8B5CF6] transition-colors"
                 >
                   View Project →
@@ -215,15 +227,22 @@ export default function Work() {
                   Role: {project.role}
                 </span>
 
-                <div 
-                  className="w-8 h-8 rounded-full bg-white border border-[#EDE4FA] text-[#5D3EA8] flex items-center justify-center group-hover:bg-[#5D3EA8] group-hover:text-white group-hover:border-[#5D3EA8] transition-all duration-300 shadow-2xs shrink-0"
-                >
-                  <svg className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                <div className="w-8 h-8 rounded-full bg-white border border-[#EDE4FA] text-[#5D3EA8] flex items-center justify-center group-hover:bg-[#5D3EA8] group-hover:text-white group-hover:border-[#5D3EA8] transition-all duration-300 shadow-2xs shrink-0">
+                  <svg
+                    className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                    />
                   </svg>
                 </div>
               </div>
-
             </motion.div>
           ))}
         </AnimatePresence>
@@ -276,7 +295,10 @@ export default function Work() {
                 </h4>
                 <ul className="space-y-1.5">
                   {activeProjectModal.qaHighlights.map((qa, i) => (
-                    <li key={i} className="text-xs text-[#2D2633]/85 flex items-start gap-2">
+                    <li
+                      key={i}
+                      className="text-xs text-[#2D2633]/85 flex items-start gap-2"
+                    >
                       <span className="text-[#8B5CF6] font-bold">✓</span>
                       <span>{qa}</span>
                     </li>
@@ -291,12 +313,33 @@ export default function Work() {
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {activeProjectModal.tech.map((t) => (
-                    <span key={t} className="px-3 py-1 rounded-full bg-white border border-[#DDD3F5] text-xs font-semibold text-[#5D3EA8]">
+                    <span
+                      key={t}
+                      className="px-3 py-1 rounded-full bg-white border border-[#DDD3F5] text-xs font-semibold text-[#5D3EA8]"
+                    >
                       {t}
                     </span>
                   ))}
                 </div>
               </div>
+
+              {activeProjectModal.link && (
+                <div className="pt-2">
+                  <a
+                    href={activeProjectModal.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-2
+                 px-5 py-2.5 rounded-full
+                 bg-[#5D3EA8] text-white
+                 text-xs font-semibold
+                 hover:bg-[#4C3090] transition-colors"
+                  >
+                    Visit Live Website ↗
+                  </a>
+                </div>
+              )}
 
               <div className="pt-2 flex justify-end">
                 <button
