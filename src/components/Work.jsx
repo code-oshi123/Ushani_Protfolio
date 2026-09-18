@@ -34,6 +34,7 @@ export default function Work() {
       tagline: "Local flower market & E-commerce demo",
       description: "Cross-platform web application for local users with ordering, browsing, and purchasing handmade flower arrangements from Bloomy Twist.",
       fullDetails: "Developed a responsive e-commerce demo with product catalog, shopping cart, and checkout flow. Conducted functional testing on order processing, discount calculations, and low-bandwidth scenarios. Validated cross-browser compatibility and mobile responsiveness.",
+      link : "https://bollom-twiat-your-flower-shop.netlify.app/",
       tech: ["HTML", "Tailwind CSS (CDN)", "Vanilla JavaScript"],
       qaHighlights: [
         "Real-time order state transition validation",
