@@ -369,7 +369,7 @@ export default function Work() {
                     onClick={(e) => e.stopPropagation()}
                     className="inline-flex items-center gap-2
                  px-5 py-2.5 rounded-full
-                 bg-[#d8bfd8] text-white
+                 bg-[#8a2be2] text-white
                  text-xs font-semibold
                  hover:bg-[#4C3090] transition-colors"
                   >
