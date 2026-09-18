@@ -198,6 +198,17 @@ export default function Work() {
                 </div>
               </div>
 
+              <div>
+                <a 
+                  href={project.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-[10.5px] font-semibold text-[#5D3EA8] hover:text-[#8B5CF6] transition-colors"
+                >
+                  View Project →
+                </a>
+              </div>
+
               {/* Card Footer: Role & Diagonal Arrow */}
               <div className="pt-3.5 mt-3 border-t border-[#ECE4FA] flex justify-between items-center gap-2">
                 <span className="text-[10.5px] font-semibold text-[#3B1C54]/80">
