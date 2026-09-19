@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Work from './components/Work';
+import QaCaseStudy from './components/QaCaseStudy';
 import QaSection from './components/QaSection';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
@@ -18,6 +19,7 @@ function App() {
       <Hero />
       <About />
       <Work />
+      <QaCaseStudy />
       <QaSection />
       <Skills />
       <Experience />
