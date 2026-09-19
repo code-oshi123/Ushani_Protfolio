@@ -4,6 +4,7 @@ import project01 from "../assets/project_card_01.png";
 import project02 from "../assets/project_card_02.png";
 import project03 from "../assets/project_card_03.png";
 import project04 from "../assets/project_card_04.png";
+import project05 from "../assets/project_card_05.png";
 
 export default function Work() {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -20,8 +21,8 @@ export default function Work() {
         "Progressive Web App connecting local communities to urban farming workshops, sustainable harvest events, and eco-initiatives.",
       fullDetails:
         "Architected as an offline-capable PWA with dynamic event registration, geo-based harvest listings, and community workshops. Implemented comprehensive manual test suites, verified service worker caching, and validated responsive layouts across iOS and Android viewports.",
-      link : "https://urban-harvest-101.vercel.app",
-      repoLink: "https://github.com/urban-harvest-hub",
+      link: "https://urban-harvest-pwa.vercel.app/",
+      repoLink: "https://github.com/code-oshi123/Urban_Harvest_PWA.git",
       tech: ["PWA", "React", "Node.js", "MySQL", "Tailwind CSS"],
       qaHighlights: [
         "Service worker caching & offline access verification",
@@ -41,7 +42,7 @@ export default function Work() {
       fullDetails:
         "Developed a responsive e-commerce demo with product catalog, shopping cart, and checkout flow. Conducted functional testing on order processing, discount calculations, and low-bandwidth scenarios. Validated cross-browser compatibility and mobile responsiveness.",
       link: "https://bollom-twiat-your-flower-shop.netlify.app/",
-      repoLink: "https://github.com/code-oshi123/flower-shop.git", 
+      repoLink: "https://github.com/code-oshi123/flower-shop.git",
       tech: ["HTML", "Tailwind CSS (CDN)", "Vanilla JavaScript"],
       qaHighlights: [
         "Real-time order state transition validation",
@@ -53,7 +54,7 @@ export default function Work() {
     {
       id: "03",
       category: "website",
-      title: " Urban Harvest Hub",
+      title: " Urban Harvest 101",
       role: "Developer & QA",
       tagline: "Inventory & Prescription Billing Platform",
       description:
@@ -62,7 +63,14 @@ export default function Work() {
         "Urban Harvest Hub is a sustainable lifestyle web platform designed to promote eco-friendly living by providing Eco-friendly products,Educational workshops, Community events , Real-time weather information , Multi-language support (English & Sinhala), Dark/Light mode toggle",
       link: "https://urban-harvst-hub.vercel.app/",
       repoLink: "https://github.com/code-oshi123/Urban_Harvst_Hub.git",
-      tech: ["React 18", "Vite", "React Router DOM", "Axios", "Tailwind CSS" , "OpenWeather API "],
+      tech: [
+        "React 18",
+        "Vite",
+        "React Router DOM",
+        "Axios",
+        "Tailwind CSS",
+        "OpenWeather API ",
+      ],
       qaHighlights: [
         "JWT token expiry & unauthorized route access testing",
         "Form input validation & error message verification",
@@ -80,7 +88,7 @@ export default function Work() {
         "Web application for enterprise supplier onboarding, performance feedback tracking, and vendor procurement SLA monitoring.",
       fullDetails:
         "Built a vendor management portal offering procurement analytics, supplier rating scorecards, and contract renewal alerts. Tested API endpoints using Postman, verified CSV report export schemas, and confirmed role-based access control.",
-      link: "nestle-dms-frontend.vercel.app",
+      link: "https://nestle-dms-frontend.vercel.app/",
       repoLink: "https://github.com/code-oshi123/nestle-dms-frontend.git",
       tech: ["React", "Node.js", "MySQL", "Postman", "Chart.js"],
       qaHighlights: [
@@ -89,6 +97,26 @@ export default function Work() {
         "SLA status calculation boundary condition checks",
       ],
       image: project04,
+    },
+    {
+      id: "05",
+      category: "web",
+      title: "stemoras-shop.vercel.app",
+      role: "QA & Developer",
+      tagline: "Local Flower shop for pipe cleaning and flower arrangements",
+      description:
+        "An interactive web application designed to sell handmade pipe flower arrangements and provide a seamless shopping experience for local customers.",
+      fullDetails:
+        "Developed a responsive e-commerce platform with product catalog, shopping cart, and checkout flow. Conducted functional testing on order processing, payment gateway integration, and user authentication. Validated cross-browser compatibility and mobile responsiveness.",
+      link: "https://stemoras-shop.vercel.app/",
+      repoLink: "https://github.com/code-oshi123/Stemoras.git",
+      tech: ["HTML", "Tailwind CSS (CDN)", "Vanilla JavaScript"],
+      qaHighlights: [
+        "Real-time order state transition validation",
+        "Cart price calculation & edge case discount testing",
+        "Low-bandwidth & mobile responsiveness validation",
+      ],
+      image: project05,
     },
   ];
 
@@ -174,7 +202,7 @@ export default function Work() {
             >
               <div className="space-y-3.5">
                 {/* Number Badge & Mockup Preview Container */}
-                <div className="relative h-40 rounded-2xl bg-white border border-[#EDE4FA] overflow-hidden flex items-center justify-center p-2 shadow-inner">
+                {/* <div className="relative h-40 rounded-2xl bg-white border border-[#EDE4FA] overflow-hidden flex items-center justify-center p-2 shadow-inner">
                   <span className="absolute top-2.5 left-2.5 z-10 w-6 h-6 rounded-full bg-[#5D3EA8] text-white font-bold text-[10px] flex items-center justify-center font-sans select-none shadow-xs group-hover:scale-110 transition-transform">
                     {project.id}
                   </span>
@@ -183,11 +211,71 @@ export default function Work() {
                     QA &amp; Dev
                   </span>
 
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover rounded-xl group-hover:scale-108 transition-transform duration-500"
-                  />
+                  {project.link ? (
+                    <iframe
+                      src={project.link}
+                      title={`${project.title} live preview`}
+                      className="w-full h-full rounded-xl border-0"
+                      loading="lazy"
+                      scrolling="no"
+                    />
+                  ) : (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover rounded-xl"
+                    />
+                  )}
+                </div> */}
+
+                {/* Number Badge & Aesthetic Browser Preview */}
+                <div className="relative h-40 rounded-2xl bg-white border border-[#EDE4FA] overflow-hidden shadow-inner">
+                  {/* Browser Header */}
+                  <div className="absolute top-0 left-0 right-0 h-6 bg-[#F3EEFC] border-b border-[#EDE4FA] flex items-center px-3 gap-1.5 z-20">
+                    <span className="w-2 h-2 rounded-full bg-[#C4B2FF]" />
+                    <span className="w-2 h-2 rounded-full bg-[#D8C6F0]" />
+                    <span className="w-2 h-2 rounded-full bg-[#E8DDFD]" />
+
+                    <span className="ml-2 text-[8px] text-[#8B6EED] truncate">
+                      {project.title}
+                    </span>
+                  </div>
+
+                  {/* Project Number */}
+                  <span className="absolute top-8 left-2.5 z-20 w-6 h-6 rounded-full bg-[#5D3EA8] text-white font-bold text-[10px] flex items-center justify-center shadow-xs">
+                    {project.id}
+                  </span>
+
+                  {/* QA Badge */}
+                  <span className="absolute top-8 right-2.5 z-20 px-2 py-0.5 rounded-full bg-white/90 text-[9px] font-bold text-[#8B6EED] border border-[#ECE4FA]">
+                    QA &amp; Dev
+                  </span>
+
+                  {/* Website Preview */}
+                  {project.link ? (
+                    <div className="absolute inset-x-0 top-6 bottom-0 overflow-hidden">
+                      <iframe
+                        src={project.link}
+                        title={`${project.title} preview`}
+                        loading="lazy"
+                        scrolling="no"
+                        tabIndex={-1}
+                        className="absolute top-0 left-0 border-0 pointer-events-none"
+                        style={{
+                          width: "400%",
+                          height: "400%",
+                          transform: "scale(0.25)",
+                          transformOrigin: "top left",
+                        }}
+                      />
+                    </div>
+                  ) : (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
                 </div>
 
                 {/* Text Content with Title Slide-In on hover */}
@@ -342,8 +430,9 @@ export default function Work() {
                 </div>
               </div>
 
-              {activeProjectModal.link && (
-                <div className="pt-2">
+              {/* Project Links - Same Line */}
+              {/* <div className="flex flex-wrap items-center gap-3 pt-2">
+                {activeProjectModal.link && (
                   <a
                     href={activeProjectModal.link}
                     target="_blank"
@@ -357,11 +446,9 @@ export default function Work() {
                   >
                     Visit Live Website ↗
                   </a>
-                </div>
-              )}
+                )}
 
-              {activeProjectModal.repoLink && (
-                <div className="pt-2">
+                {activeProjectModal.repoLink && (
                   <a
                     href={activeProjectModal.repoLink}
                     target="_blank"
@@ -375,13 +462,62 @@ export default function Work() {
                   >
                     Visit GitHub Repository ↗
                   </a>
-                </div>
-              )}
+                )}
+              </div> */}
 
-              <div className="pt-2 flex justify-end">
+              {/* <div className="pt-2 flex justify-end">
+                
                 <button
                   onClick={() => setActiveProjectModal(null)}
                   className="px-6 py-2.5 rounded-full bg-[#5D3EA8] hover:bg-[#4C3090] text-white text-xs font-semibold transition-colors cursor-pointer"
+                >
+                  Close Preview
+                </button>
+              </div> */}
+              {/* Project Links + Close Button */}
+              <div className="pt-2 flex flex-wrap items-center justify-between gap-3">
+                <div className="flex flex-wrap items-center gap-3">
+                  {/* Live Website - Light Purple */}
+                  {activeProjectModal.link && (
+                    <a
+                      href={activeProjectModal.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="inline-flex items-center px-5 py-2.5
+                   rounded-full bg-[#A78BFA] text-white
+                   text-xs font-semibold
+                   hover:bg-[#5D3EA8] transition-colors"
+                    >
+                      Visit Live Website ↗
+                    </a>
+                  )}
+
+                  {/* GitHub - Medium Purple */}
+                  {activeProjectModal.repoLink && (
+                    <a
+                      href={activeProjectModal.repoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="inline-flex items-center px-5 py-2.5
+                   rounded-full bg-[#8A2BE2] text-white
+                   text-xs font-semibold
+                   hover:bg-[#5D3EA8] transition-colors"
+                    >
+                      Visit GitHub Repository ↗
+                    </a>
+                  )}
+                </div>
+
+                {/* Close Preview - Deep Purple */}
+                <button
+                  onClick={() => setActiveProjectModal(null)}
+                  className="px-6 py-2.5 rounded-full
+               bg-[#5D3EA8] text-white text-xs
+               font-semibold
+               hover:bg-[#5D3EA8] transition-colors
+               cursor-pointer"
                 >
                   Close Preview
                 </button>
