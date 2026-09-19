@@ -140,7 +140,7 @@ export default function Strengths() {
       </div>
 
       {/* SECTION: BUILT, TESTED & EXPLORED 🚀 */}
-      <div className="space-y-8 relative z-10 pt-6">
+      {/* <div className="space-y-8 relative z-10 pt-6">
         <div className="text-center space-y-2">
           <span className="text-[12px] tracking-[0.28em] font-semibold text-[#8B6EED] uppercase block">
             PORTFOLIO OVERVIEW 🚀
@@ -186,7 +186,7 @@ export default function Strengths() {
             </motion.div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* SECTION: CURRENTLY EXPLORING 🌙 */}
       <motion.div 
@@ -198,9 +198,10 @@ export default function Strengths() {
       >
         <div className="flex items-center justify-center gap-2">
           <span className="text-lg select-none">🌙</span>
-          <h3 className="text-xl sm:text-2xl font-serif text-[#3B1C54] font-medium">
-            Currently Exploring
-          </h3>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#3B1C54] font-medium tracking-tight">
+            Currently Exploring <span className="text-[#8B5CF6]">✦</span>
+          </h2>
+
           <motion.span 
             className="text-sm text-[#8B5CF6] select-none"
             animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}

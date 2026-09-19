@@ -8,6 +8,7 @@ import QaSection from './components/QaSection';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Strengths from './components/Strengths';
+import QaPhilosophy from './components/QaPhilosophy';
 import Contact from './components/Contact';
 import CustomCursor from './components/CustomCursor';
 
@@ -24,6 +25,7 @@ function App() {
       <Skills />
       <Experience />
       <Strengths />
+      <QaPhilosophy />
       <Contact />
     </div>
   );

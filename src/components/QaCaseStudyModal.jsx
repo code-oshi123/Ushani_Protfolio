@@ -24,12 +24,19 @@ export default function QaCaseStudyModal({ isOpen, onClose }) {
   });
   const [imageErrors, setImageErrors] = useState({});
 
-  // Prevent background scrolling and handle Escape key
+  // Prevent background scrolling, handle Escape key, and hide fixed navigation while modal is open
   useEffect(() => {
     if (!isOpen) return;
 
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+
+    // Remove the fixed navigation bar while modal window is active so header parts are completely clear
+    const navbar = document.querySelector('nav');
+    const originalNavDisplay = navbar ? navbar.style.display : '';
+    if (navbar) {
+      navbar.style.display = 'none';
+    }
 
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
@@ -44,6 +51,9 @@ export default function QaCaseStudyModal({ isOpen, onClose }) {
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       document.body.style.overflow = originalOverflow;
+      if (navbar) {
+        navbar.style.display = originalNavDisplay;
+      }
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [isOpen, selectedImage, onClose]);
@@ -187,7 +197,7 @@ export default function QaCaseStudyModal({ isOpen, onClose }) {
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 md:p-6 bg-[#1F0C31]/70 backdrop-blur-md overflow-y-auto"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-5 md:p-6 bg-[#1F0C31]/80 backdrop-blur-md overflow-y-auto"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -748,7 +758,7 @@ export default function QaCaseStudyModal({ isOpen, onClose }) {
         <AnimatePresence>
           {selectedImage && (
             <div
-              className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md"
+              className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-black/85 backdrop-blur-md"
               onClick={() => setSelectedImage(null)}
             >
               <motion.div
