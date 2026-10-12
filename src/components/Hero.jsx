@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, CheckCircle2, ShieldCheck, Code2, Zap, Play, Check } from 'lucide-react';
+import { Terminal, ShieldCheck, Code2, Zap, Check } from 'lucide-react';
 
 export default function Hero() {
   const [activeTab, setActiveTab] = useState('test');
@@ -254,7 +254,7 @@ export default function Hero() {
               ✧
             </motion.div>
 
-            {/* SATELLITE BADGE 1: Top Right - Quality Gate Passed */}
+            {/* SATELLITE BADGE 1: Top Right - QA Core Practice */}
             <motion.div 
               className="absolute -top-5 sm:-top-6 -right-2 sm:-right-4 z-30 bg-white/95 dark:bg-[#1D1629]/95 backdrop-blur-xl border border-[#EDE4FA] dark:border-[#34244D] shadow-[0_12px_28px_rgba(139,92,246,0.18)] dark:shadow-[0_12px_28px_rgba(0,0,0,0.6)] rounded-2xl p-2.5 sm:p-3.5 flex items-center gap-2.5 sm:gap-3 select-none"
               animate={{ y: [0, -7, 0] }}
@@ -266,15 +266,15 @@ export default function Hero() {
               <div>
                 <div className="flex items-center gap-1.5">
                   <span className="text-[9.5px] sm:text-[10px] font-mono font-bold tracking-wider uppercase text-[#8B5CF6] dark:text-[#A78BFA]">
-                    QUALITY GATE
+                    QA CORE PRACTICE
                   </span>
                   <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
                 </div>
                 <div className="text-xs sm:text-[13px] font-bold text-[#2D1B4E] dark:text-[#F5EFFB]">
-                  99.4% Test Coverage
+                  Functional &amp; Regression Testing
                 </div>
                 <div className="text-[9.5px] sm:text-[10px] text-[#2D2633]/65 dark:text-[#C5B9D3]">
-                  0 Critical Regressions
+                  Manual Testing &amp; Test Case Design
                 </div>
               </div>
             </motion.div>
@@ -320,10 +320,10 @@ export default function Hero() {
                   </button>
                 </div>
 
-                {/* Right Status Badge */}
-                <div className="hidden sm:flex items-center gap-1 text-[10.5px] font-mono text-[#059669] dark:text-[#34D399] bg-[#ECFDF5] dark:bg-[#064E3B]/30 px-2 py-0.5 rounded-full border border-[#A7F3D0] dark:border-[#059669]/40 font-semibold">
-                  <Check className="w-3 h-3 stroke-[3]" />
-                  <span>PASSING</span>
+                {/* Simulated Demo Badge */}
+                <div className="flex items-center gap-1 text-[10px] font-mono text-[#8B6EED] dark:text-[#C4B5FD] bg-[#F5EFFE] dark:bg-[#261D35] px-2.5 py-0.5 rounded-full border border-[#DDD3F5] dark:border-[#3D2C54] font-semibold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6] dark:bg-[#A78BFA] animate-pulse" />
+                  <span>SIMULATED DEMO</span>
                 </div>
               </div>
 
@@ -332,15 +332,15 @@ export default function Hero() {
                 {activeTab === 'test' ? (
                   <div className="space-y-1 text-[#3B1C54] dark:text-[#F5EFFB] min-w-[280px]">
                     <div className="text-[#8B6EED] dark:text-[#C4B5FD] text-[10.5px] pb-1 select-none flex items-center gap-1.5">
-                      <span>// ✦ Automated End-to-End QA Suite</span>
-                      <span className="text-[#10B981]">● Live</span>
+                      <span>// ✦ Illustrative Test Automation Concept</span>
+                      <span className="text-[#8B5CF6] dark:text-[#A78BFA]">● Demo</span>
                     </div>
 
                     <div className="flex">
                       <span className="w-5 sm:w-6 text-[#9CA3AF] dark:text-[#6B5B82] select-none text-right pr-2.5 text-[10.5px]">01</span>
                       <p>
                         <span className="text-[#8B5CF6] dark:text-[#A78BFA] font-bold">describe</span>
-                        (<span className="text-[#059669] dark:text-[#34D399]">'User Experience &amp; Performance'</span>, () =&gt; &#123;
+                        (<span className="text-[#059669] dark:text-[#34D399]">'User Authentication Flow'</span>, () =&gt; &#123;
                       </p>
                     </div>
 
@@ -348,28 +348,28 @@ export default function Hero() {
                       <span className="w-5 sm:w-6 text-[#9CA3AF] dark:text-[#6B5B82] select-none text-right pr-2.5 text-[10.5px]">02</span>
                       <p className="pl-3 sm:pl-4">
                         <span className="text-[#8B5CF6] dark:text-[#A78BFA] font-bold">test</span>
-                        (<span className="text-[#059669] dark:text-[#34D399]">'verify zero critical defects'</span>, <span className="text-[#D97706] dark:text-[#FBBF24]">async</span> () =&gt; &#123;
+                        (<span className="text-[#059669] dark:text-[#34D399]">'verify valid login credentials'</span>, <span className="text-[#D97706] dark:text-[#FBBF24]">async</span> () =&gt; &#123;
                       </p>
                     </div>
 
                     <div className="flex">
                       <span className="w-5 sm:w-6 text-[#9CA3AF] dark:text-[#6B5B82] select-none text-right pr-2.5 text-[10.5px]">03</span>
                       <p className="pl-6 sm:pl-8">
-                        <span className="text-[#D97706] dark:text-[#FBBF24]">const</span> build = <span className="text-[#D97706] dark:text-[#FBBF24]">await</span> runValidation(&#123; env: <span className="text-[#059669] dark:text-[#34D399]">'prod'</span> &#125;);
+                        <span className="text-[#D97706] dark:text-[#FBBF24]">const</span> session = <span className="text-[#D97706] dark:text-[#FBBF24]">await</span> loginUser(&#123; user: <span className="text-[#059669] dark:text-[#34D399]">'standard_user'</span> &#125;);
                       </p>
                     </div>
 
                     <div className="flex">
                       <span className="w-5 sm:w-6 text-[#9CA3AF] dark:text-[#6B5B82] select-none text-right pr-2.5 text-[10.5px]">04</span>
                       <p className="pl-6 sm:pl-8">
-                        <span className="text-[#8B5CF6] dark:text-[#A78BFA]">expect</span>(build.criticalDefects).<span className="text-[#2563EB] dark:text-[#60A5FA]">toBe</span>(<span className="text-[#D97706] dark:text-[#FBBF24]">0</span>);
+                        <span className="text-[#8B5CF6] dark:text-[#A78BFA]">expect</span>(session.isAuthenticated).<span className="text-[#2563EB] dark:text-[#60A5FA]">toBe</span>(<span className="text-[#2563EB] dark:text-[#60A5FA]">true</span>);
                       </p>
                     </div>
 
                     <div className="flex">
                       <span className="w-5 sm:w-6 text-[#9CA3AF] dark:text-[#6B5B82] select-none text-right pr-2.5 text-[10.5px]">05</span>
                       <p className="pl-6 sm:pl-8">
-                        <span className="text-[#8B5CF6] dark:text-[#A78BFA]">expect</span>(build.uiReliability).<span className="text-[#2563EB] dark:text-[#60A5FA]">toBeGreaterThanOrEqual</span>(<span className="text-[#D97706] dark:text-[#FBBF24]">99.8</span>);
+                        <span className="text-[#8B5CF6] dark:text-[#A78BFA]">expect</span>(session.currentRoute).<span className="text-[#2563EB] dark:text-[#60A5FA]">toContain</span>(<span className="text-[#059669] dark:text-[#34D399]">'/inventory'</span>);
                       </p>
                     </div>
 
@@ -386,24 +386,24 @@ export default function Hero() {
                 ) : (
                   <div className="space-y-1 text-[#3B1C54] dark:text-[#F5EFFB] min-w-[280px]">
                     <div className="text-[#8B6EED] dark:text-[#C4B5FD] text-[10.5px] pb-1 select-none flex items-center gap-1.5">
-                      <span>// ✦ REST API Contract &amp; Schema Validation</span>
-                      <span className="text-[#10B981]">● 200 OK</span>
+                      <span>// ✦ Illustrative API Verification Schema</span>
+                      <span className="text-[#8B5CF6] dark:text-[#A78BFA]">● Demo</span>
                     </div>
                     <div className="text-[#6B7280] dark:text-[#A78BFA]">&#123;</div>
                     <div className="pl-3 sm:pl-4">
-                      <span className="text-[#8B5CF6] dark:text-[#C4B5FD]">"service"</span>: <span className="text-[#059669] dark:text-[#34D399]">"quality-core-api"</span>,
+                      <span className="text-[#8B5CF6] dark:text-[#C4B5FD]">"service"</span>: <span className="text-[#059669] dark:text-[#34D399]">"inventory-api"</span>,
                     </div>
                     <div className="pl-3 sm:pl-4">
-                      <span className="text-[#8B5CF6] dark:text-[#C4B5FD]">"status"</span>: <span className="text-[#D97706] dark:text-[#FBBF24]">200</span>,
+                      <span className="text-[#8B5CF6] dark:text-[#C4B5FD]">"method"</span>: <span className="text-[#059669] dark:text-[#34D399]">"GET"</span>,
                     </div>
                     <div className="pl-3 sm:pl-4">
-                      <span className="text-[#8B5CF6] dark:text-[#C4B5FD]">"responseTime"</span>: <span className="text-[#059669] dark:text-[#34D399]">"18ms"</span>,
+                      <span className="text-[#8B5CF6] dark:text-[#C4B5FD]">"expectedStatus"</span>: <span className="text-[#D97706] dark:text-[#FBBF24]">200</span>,
                     </div>
                     <div className="pl-3 sm:pl-4">
-                      <span className="text-[#8B5CF6] dark:text-[#C4B5FD]">"automatedTestsPassed"</span>: <span className="text-[#D97706] dark:text-[#FBBF24]">32</span>,
+                      <span className="text-[#8B5CF6] dark:text-[#C4B5FD]">"validationTool"</span>: <span className="text-[#059669] dark:text-[#34D399]">"Postman"</span>,
                     </div>
                     <div className="pl-3 sm:pl-4">
-                      <span className="text-[#8B5CF6] dark:text-[#C4B5FD]">"readyToDeploy"</span>: <span className="text-[#2563EB] dark:text-[#60A5FA]">true</span>
+                      <span className="text-[#8B5CF6] dark:text-[#C4B5FD]">"focus"</span>: <span className="text-[#059669] dark:text-[#34D399]">"Schema &amp; Payload Structure"</span>
                     </div>
                     <div className="text-[#6B7280] dark:text-[#A78BFA]">&#125;</div>
                   </div>
@@ -416,14 +416,14 @@ export default function Hero() {
                   <div className="flex items-center gap-2">
                     <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#ECFDF5] dark:bg-[#064E3B]/40 border border-[#A7F3D0] dark:border-[#059669]/50 text-[10px] font-mono font-bold text-[#059669] dark:text-[#34D399]">
                       <Check className="w-3 h-3 stroke-[3]" />
-                      PASS
+                      SAMPLE
                     </span>
                     <span className="text-[11.5px] sm:text-xs font-mono font-medium text-[#2D2633]/80 dark:text-[#C5B9D3]">
-                      tests/e2e-quality.spec.ts
+                      tests/sample-flow.spec.ts
                     </span>
                   </div>
-                  <span className="text-[10.5px] sm:text-[11px] font-mono text-[#8B6EED] dark:text-[#A78BFA] font-semibold">
-                    142ms
+                  <span className="text-[10px] font-mono text-[#8B6EED] dark:text-[#A78BFA] font-semibold bg-[#FAF8FE] dark:bg-[#261D35] px-2 py-0.5 rounded border border-[#EDE4FA] dark:border-[#3D2C54]">
+                    SIMULATED DEMO
                   </span>
                 </div>
 
@@ -439,9 +439,9 @@ export default function Hero() {
 
                 {/* Summary Row */}
                 <div className="flex flex-wrap items-center justify-between gap-2 pt-0.5 text-[10.5px] sm:text-[11px] font-mono text-[#2D2633]/70 dark:text-[#C5B9D3]">
-                  <span><strong className="text-[#059669] dark:text-[#34D399]">✓ 32 passed</strong> (100%)</span>
-                  <span>Duration: <strong className="text-[#8B5CF6] dark:text-[#A78BFA]">1.18s</strong></span>
-                  <span className="text-[#059669] dark:text-[#34D399] font-semibold">Ready to Ship 🚀</span>
+                  <span><strong className="text-[#059669] dark:text-[#34D399]">✓ Expected Result Met</strong></span>
+                  <span>Focus: <strong className="text-[#8B5CF6] dark:text-[#A78BFA]">Functional Flow</strong></span>
+                  <span className="text-[#8B5CF6] dark:text-[#C4B5FD] font-semibold">Concept Demo ✦</span>
                 </div>
               </div>
 
@@ -467,7 +467,7 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* SATELLITE BADGE 2: Bottom Left - API & Response Latency */}
+            {/* SATELLITE BADGE 2: Bottom Left - API & Tooling */}
             <motion.div 
               className="absolute -bottom-5 sm:-bottom-6 -left-2 sm:-left-4 z-30 bg-white/95 dark:bg-[#1D1629]/95 backdrop-blur-xl border border-[#EDE4FA] dark:border-[#34244D] shadow-[0_12px_28px_rgba(139,92,246,0.18)] dark:shadow-[0_12px_28px_rgba(0,0,0,0.6)] rounded-2xl p-2.5 sm:p-3.5 flex items-center gap-2.5 sm:gap-3 select-none"
               animate={{ y: [0, 7, 0] }}
@@ -479,15 +479,15 @@ export default function Hero() {
               <div>
                 <div className="flex items-center gap-1.5">
                   <span className="text-[9.5px] sm:text-[10px] font-mono font-bold tracking-wider uppercase text-[#8B5CF6] dark:text-[#A78BFA]">
-                    REST API HEALTH
+                    API &amp; TOOLING
                   </span>
                   <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
                 </div>
                 <div className="text-xs sm:text-[13px] font-bold text-[#2D1B4E] dark:text-[#F5EFFB]">
-                  200 OK • 18ms Latency
+                  API Validation with Postman
                 </div>
                 <div className="text-[9.5px] sm:text-[10px] text-[#2D2633]/65 dark:text-[#C5B9D3]">
-                  Automated Schema Verified
+                  Responsive UI Verification
                 </div>
               </div>
             </motion.div>

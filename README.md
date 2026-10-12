@@ -110,12 +110,12 @@ Navbar (Fixed Header + Theme Toggle)
   4. **Improve (`✦`)** — with care
 - **Interactive Tech & QA Workspace Console:**
   - **Dual Tabs:**
-    - `quality-spec.ts`: Automated End-to-End QA script (`describe`, `test`, `expect` zero defects, UI reliability $\ge 99.8\%$).
-    - `api-contract.json`: REST API health payload (`200 OK`, latency `18ms`, automated tests passed `32`).
-  - **Live Test Runner Widget:** Simulates test execution (`tests/e2e-quality.spec.ts`) with animated progress bar, 142ms runtime, and `"Production Ready 🚀"` badge.
+    - `quality-spec.ts`: Illustrative Test Automation Concept (`describe`, `test`, user authentication assertions).
+    - `api-contract.json`: Illustrative API Verification Schema (Postman, REST GET endpoint, expected status `200 OK`).
+  - **Live Test Runner Widget:** Simulates test execution (`tests/sample-flow.spec.ts`) with animated progress bar and clear `"SIMULATED DEMO"` badge.
   - **Satellite Telemetry Cards:**
-    - Top Right: `QUALITY GATE` — `99.4% Test Coverage` • `0 Critical Regressions` (Pulsing green indicator).
-    - Bottom Left: `REST API HEALTH` — `200 OK • 18ms Latency` • Automated Schema Verified.
+    - Top Right: `QA CORE PRACTICE` — `Functional & Regression Testing` • `Manual Testing & Test Case Design`.
+    - Bottom Left: `API & TOOLING` — `API Validation with Postman` • `Responsive UI Verification`.
   - **Toolchain Badges:** Playwright, Postman, Selenium, React.
 
 ---
@@ -127,7 +127,7 @@ Navbar (Fixed Header + Theme Toggle)
   1. 🧠 **Problem Solver** — Root cause analysis & debugging
   2. 👁️ **Detail Oriented** — Catching pixel & edge discrepancies
   3. ⚡ **Quick Learner** — Rapid adaptation to frameworks & tools
-  4. 🎯 **Quality Focused** — Dedicated to zero-defect standards
+  4. 🎯 **Quality Focused** — Dedicated to thorough verification & defect prevention
   5. 🤝 **Team Player** — Agile & cross-functional collaboration
   6. 🔍 **Always Curious** — Exploring deep system behaviors
 - **Visual Scene:** Illustrated 3D desk flat-lay workspace (`about_desk_illustration.png`).
@@ -180,12 +180,12 @@ Features interactive category filter tabs (**All**, **🌐 Web & PWA**, **📱 M
 A case study based on the test execution of the **SauceDemo Login Functionality**:
 - **Target Application:** `saucedemo.com/login`
 - **Execution Pass Rate:** 100% (4 / 4 test cases passed)
-- **Defects:** 0 Defects / 0 Blockers
+- **Nuance Note:** A "Passed" status indicates that observed application behavior matched the expected result for that specific scenario under test. It reflects successful verification of these 4 authentication flows, rather than a claim that the entire application is defect-free.
 - **Test Scenarios Covered:**
-  - `AUTH-01`: Valid Login (Standard User credentials $\to$ redirects to `/inventory.html`)
-  - `AUTH-02`: Locked Out User (Locked account validation message verification)
-  - `AUTH-03`: Invalid Password (Rejection with inline error messaging)
-  - `AUTH-04`: Empty Username & Password (Required field validation verification)
+  - `TC_LOGIN_001`: Valid Credentials (Standard User $\to$ user successfully logs in)
+  - `TC_LOGIN_002`: Valid Username with Incorrect Password (Login prevented, error: `Epic sadface: Username and password do not match any user in this service.`)
+  - `TC_LOGIN_003`: Both Username and Password Empty (Login prevented, error: `Epic sadface: Username is required.`)
+  - `TC_LOGIN_004`: Valid Username with Empty Password (Login prevented, error: `Epic sadface: Password is required.`)
 - **Interactive Report Modal:**
   - Collapsible test cases with step-by-step reproduction instructions, test data, expected vs. actual outcomes, and screenshot evidence lightbox.
   - Downloadable test documentation action button.
@@ -243,8 +243,8 @@ Filterable by **All**, **Work Experience**, and **Education**:
   - **9 A's Distinction** across all 9 subjects.
 
 #### Academic References:
-- **K.M. Shani Alwis** — Lecturer, APIIT Sri Lanka (`shani@apiit.lk` • `0771036300`)
-- **Tharaka Dulaj** — Lecturer, APIIT Sri Lanka (`tharaka@apiit.lk` • `0705954188`)
+- **K.M. Shani Alwis** — Lecturer, APIIT Sri Lanka (Contact details available upon request)
+- **Tharaka Dulaj** — Lecturer, APIIT Sri Lanka (Contact details available upon request)
 
 ---
 

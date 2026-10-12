@@ -18,10 +18,10 @@ import {
 export default function QaCaseStudyModal({ isOpen, onClose }) {
   const [selectedImage, setSelectedImage] = useState(null);
   const [expandedCases, setExpandedCases] = useState({
-    'AUTH-01': true,
-    'AUTH-02': false,
-    'AUTH-03': false,
-    'AUTH-04': false,
+    'TC_LOGIN_001': true,
+    'TC_LOGIN_002': false,
+    'TC_LOGIN_003': false,
+    'TC_LOGIN_004': false,
   });
   const [imageErrors, setImageErrors] = useState({});
 
@@ -71,19 +71,19 @@ export default function QaCaseStudyModal({ isOpen, onClose }) {
 
   const expandAll = () => {
     setExpandedCases({
-      'AUTH-01': true,
-      'AUTH-02': true,
-      'AUTH-03': true,
-      'AUTH-04': true,
+      'TC_LOGIN_001': true,
+      'TC_LOGIN_002': true,
+      'TC_LOGIN_003': true,
+      'TC_LOGIN_004': true,
     });
   };
 
   const collapseAll = () => {
     setExpandedCases({
-      'AUTH-01': false,
-      'AUTH-02': false,
-      'AUTH-03': false,
-      'AUTH-04': false,
+      'TC_LOGIN_001': false,
+      'TC_LOGIN_002': false,
+      'TC_LOGIN_003': false,
+      'TC_LOGIN_004': false,
     });
   };
 
@@ -94,10 +94,10 @@ export default function QaCaseStudyModal({ isOpen, onClose }) {
   // Test cases data strictly from SauceDemo_test_report.pdf
   const testCases = [
     {
-      id: "AUTH-01",
+      id: "TC_LOGIN_001",
       number: "1",
       module: "Authentication & Access Control",
-      scenario: "Valid username and password",
+      scenario: "Valid Credentials",
       type: "Positive Testing",
       steps: [
         "Open SauceDemo (https://www.saucedemo.com).",
@@ -118,10 +118,10 @@ export default function QaCaseStudyModal({ isOpen, onClose }) {
       screenshotCaption: "SauceDemo Products Inventory catalog page displayed after successful login authentication."
     },
     {
-      id: "AUTH-02",
+      id: "TC_LOGIN_002",
       number: "2",
       module: "Authentication & Access Control",
-      scenario: "Incorrect password",
+      scenario: "Valid Username with Incorrect Password",
       type: "Negative Testing",
       steps: [
         "Open SauceDemo.",
@@ -135,17 +135,17 @@ export default function QaCaseStudyModal({ isOpen, onClose }) {
       },
       preconditions: "SauceDemo login page is open.",
       expectedResult: "Login should be prevented and an appropriate error message should appear.",
-      actualResult: "Login was prevented.",
+      actualResult: "Login was prevented and the error message 'Epic sadface: Username and password do not match any user in this service.' appeared.",
       status: "Pass",
-      errorMessage: "Epic sadface: Username and password do not match any user in this service",
+      errorMessage: "Epic sadface: Username and password do not match any user in this service.",
       screenshot: "/qa/auth-02.png",
       screenshotCaption: "Error banner displayed when an invalid password is provided for standard_user."
     },
     {
-      id: "AUTH-03",
+      id: "TC_LOGIN_003",
       number: "3",
       module: "Authentication & Access Control",
-      scenario: "Both fields empty",
+      scenario: "Both Username and Password Empty",
       type: "Negative Testing",
       steps: [
         "Open SauceDemo.",
@@ -158,17 +158,17 @@ export default function QaCaseStudyModal({ isOpen, onClose }) {
       },
       preconditions: "SauceDemo login page is open with blank input fields.",
       expectedResult: "Login should be prevented and an appropriate error message should appear.",
-      actualResult: "An error message appeared.",
+      actualResult: "Login was prevented and the error message 'Epic sadface: Username is required.' appeared.",
       status: "Pass",
-      errorMessage: "Epic sadface: Username is required",
+      errorMessage: "Epic sadface: Username is required.",
       screenshot: "/qa/auth-03.png",
       screenshotCaption: "Required field validation message displayed when submitting login form with empty credentials."
     },
     {
-      id: "AUTH-04",
+      id: "TC_LOGIN_004",
       number: "4",
       module: "Authentication & Access Control",
-      scenario: "Valid username, empty password",
+      scenario: "Valid Username with Empty Password",
       type: "Negative Testing",
       steps: [
         "Open SauceDemo.",
@@ -182,9 +182,9 @@ export default function QaCaseStudyModal({ isOpen, onClose }) {
       },
       preconditions: "SauceDemo login page is open with username populated.",
       expectedResult: "Login should be prevented and an appropriate error message should appear.",
-      actualResult: "The system did not allow the user to log in.",
+      actualResult: "Login was prevented and the error message 'Epic sadface: Password is required.' appeared.",
       status: "Pass",
-      errorMessage: "Epic sadface: Password is required",
+      errorMessage: "Epic sadface: Password is required.",
       screenshot: "/qa/auth-04.png",
       screenshotCaption: "Validation banner displayed requiring password when username is provided alone."
     }
@@ -384,12 +384,15 @@ export default function QaCaseStudyModal({ isOpen, onClose }) {
               </div>
               <div className="space-y-1">
                 <h4 className="text-xs font-bold text-[#3B1C54] uppercase tracking-wider">
-                  Overall Observation
+                  Overall Observation &amp; Scope Context
                 </h4>
                 <p className="text-xs sm:text-[13px] text-[#2D2633]/85 italic leading-relaxed">
                   "All four executed login scenarios behaved as expected. Appropriate validation messages were displayed for invalid or incomplete login inputs."
                 </p>
-                <span className="text-[10px] text-[#8B6EED] font-medium block">
+                <p className="text-[11.5px] text-[#2D2633]/75 pt-1 leading-relaxed">
+                  <strong>Testing Note:</strong> A "Passed" status indicates that observed application behavior matched the expected result for that specific scenario under test. It reflects successful verification of these 4 authentication flows, rather than a claim that the entire application is defect-free.
+                </p>
+                <span className="text-[10px] text-[#8B6EED] font-medium block pt-0.5">
                   — Documented in SauceDemo Login Testing Report
                 </span>
               </div>
@@ -647,20 +650,20 @@ export default function QaCaseStudyModal({ isOpen, onClose }) {
                 </div>
                 <div className="space-y-1.5">
                   <h4 className="text-xs font-bold text-[#3B1C54] uppercase tracking-wider">
-                    Zero Defects Logged — Expected Behavior Confirmed
+                    Execution Findings — Expected Behaviors Confirmed
                   </h4>
                   <ul className="space-y-1.5 text-xs text-[#2D2633]/85 leading-relaxed">
                     <li className="flex items-start gap-1.5">
                       <span className="text-[#8B5CF6] font-bold">✓</span>
-                      <span><strong>No defects identified</strong> in the executed test cases.</span>
+                      <span><strong>4 of 4 test cases passed:</strong> In every scenario, the observed system response matched the documented expected criteria.</span>
                     </li>
                     <li className="flex items-start gap-1.5">
                       <span className="text-[#8B5CF6] font-bold">✓</span>
-                      <span>Defect reporting was <strong>not required</strong> for the executed scenarios because the observed behavior matched the expected results.</span>
+                      <span>Defect tickets were <strong>not required</strong> for these 4 executed test cases because all authentication barriers and error banners operated according to specification.</span>
                     </li>
                     <li className="flex items-start gap-1.5">
                       <span className="text-[#8B5CF6] font-bold">✓</span>
-                      <span>Login prevention mechanisms and dynamic error notification banners function accurately across negative test vectors.</span>
+                      <span><strong>Testing Scope Clarification:</strong> Passing these test cases confirms the stability of these specific evaluated scenarios; it does not constitute proof that the overall application is entirely defect-free across untested modules.</span>
                     </li>
                   </ul>
                 </div>

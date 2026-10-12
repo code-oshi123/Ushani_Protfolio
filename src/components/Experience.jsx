@@ -131,16 +131,12 @@ export default function Experience() {
     {
       name: "K.M. Shani Alwis",
       role: "Lecturer",
-      institution: "APIIT Sri Lanka",
-      phone: "0771036300",
-      email: "shani@apiit.lk"
+      institution: "APIIT Sri Lanka"
     },
     {
       name: "Tharaka Dulaj",
       role: "Lecturer",
-      institution: "APIIT Sri Lanka",
-      phone: "0705954188",
-      email: "tharaka@apiit.lk"
+      institution: "APIIT Sri Lanka"
     }
   ];
 
@@ -295,8 +291,8 @@ export default function Experience() {
               Academic &amp; Professional References
             </h3>
           </div>
-          <span className="text-xs font-semibold text-[#8B6EED] dark:text-[#C4B5FD] uppercase tracking-wider">
-            APIIT Sri Lanka Faculty
+          <span className="text-xs font-semibold text-[#8B6EED] dark:text-[#C4B5FD] tracking-wider">
+            Academic references available upon request
           </span>
         </div>
 
@@ -315,13 +311,9 @@ export default function Experience() {
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center gap-3 pt-2 text-[11px] text-[#2D2633]/80 dark:text-[#C5B9D3] border-t border-[#ECE4FA] dark:border-[#2D2140]">
-                <span className="flex items-center gap-1">
-                  📞 {ref.phone}
-                </span>
-                <span className="flex items-center gap-1">
-                  ✉️ <a href={`mailto:${ref.email}`} className="text-[#5D3EA8] dark:text-[#A78BFA] hover:underline font-semibold">{ref.email}</a>
-                </span>
+              <div className="pt-2 text-[11.5px] text-[#8B6EED] dark:text-[#C4B5FD] font-medium border-t border-[#ECE4FA] dark:border-[#2D2140] flex items-center gap-1.5">
+                <span>✦</span>
+                <span>Contact details available upon request</span>
               </div>
             </div>
           ))}

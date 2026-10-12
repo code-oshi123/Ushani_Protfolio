@@ -66,7 +66,7 @@ export default function QaSection() {
       name: "IMPROVE",
       title: "Regression & Continuous Enhancement",
       tagline: "Ensuring long-term product stability with every release",
-      desc: "Retest resolved tickets, run full regression test suites to guarantee zero side-effects, and collaborate with engineering to strengthen test coverage.",
+      desc: "Retest resolved tickets, run full regression test suites to catch potential side-effects early, and collaborate with engineering to strengthen test coverage.",
       activities: [
         "Fix Verification & Regression Testing",
         "Smoke & Sanity Testing for Release Candidates",
@@ -313,7 +313,7 @@ export default function QaSection() {
               </motion.span>
               <div className="text-left pr-2">
                 <div className="text-xs font-bold text-[#3B1C54] dark:text-[#F5EFFB]">Detail-Oriented</div>
-                <div className="text-[10px] text-[#8B6EED] dark:text-[#C4B5FD] font-semibold">Zero-Bug Standard</div>
+                <div className="text-[10px] text-[#8B6EED] dark:text-[#C4B5FD] font-semibold">Quality-First Focus</div>
               </div>
             </div>
           </div>

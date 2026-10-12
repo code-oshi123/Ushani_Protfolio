@@ -7,7 +7,7 @@ export default function About() {
     { name: "Problem Solver", icon: "🧠", hint: "Root cause analysis & debugging" },
     { name: "Detail Oriented", icon: "👁️", hint: "Catching pixel & edge discrepancies" },
     { name: "Quick Learner", icon: "⚡", hint: "Rapid adaptation to frameworks & tools" },
-    { name: "Quality Focused", icon: "🎯", hint: "Dedicated to zero-defect standards" },
+    { name: "Quality Focused", icon: "🎯", hint: "Dedicated to thorough verification & defect prevention" },
     { name: "Team Player", icon: "🤝", hint: "Agile & cross-functional collaboration" },
     { name: "Always Curious", icon: "🔍", hint: "Exploring deep system behaviors" }
   ];

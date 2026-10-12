@@ -106,8 +106,8 @@ export default function QaCaseStudy() {
                     <div className="bg-gradient-to-r from-[#8B5CF6] to-emerald-500 h-full w-full rounded-full" />
                   </div>
                   <div className="flex justify-between text-[10px] text-[#2D2633]/65 dark:text-[#C5B9D3]/70 pt-0.5">
-                    <span>AUTH-01 to AUTH-04</span>
-                    <span>0 Defects / 0 Blockers</span>
+                    <span>TC_LOGIN_001 to 004</span>
+                    <span>4 of 4 Scenarios Passed</span>
                   </div>
                 </div>
 
@@ -185,8 +185,8 @@ export default function QaCaseStudy() {
                 <span className="text-[10px] text-[#2D2633]/65 dark:text-[#C5B9D3]/70 font-medium">Expected Outcome</span>
               </div>
               <div className="bg-white/80 dark:bg-[#17111F] border border-[#ECE4FA] dark:border-[#2D2140] p-2.5 rounded-xl text-center">
-                <span className="block text-base sm:text-lg font-serif font-bold text-[#5D3EA8] dark:text-[#C4B5FD]">0 Defects</span>
-                <span className="text-[10px] text-[#2D2633]/65 dark:text-[#C5B9D3]/70 font-medium">Accurate Validation</span>
+                <span className="block text-base sm:text-lg font-serif font-bold text-[#5D3EA8] dark:text-[#C4B5FD]">4 / 4 Passed</span>
+                <span className="text-[10px] text-[#2D2633]/65 dark:text-[#C5B9D3]/70 font-medium">Observed vs Expected</span>
               </div>
             </div>
 
