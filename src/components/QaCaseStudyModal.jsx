@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   X, 
@@ -28,10 +29,12 @@ export default function QaCaseStudyModal({ isOpen, onClose }) {
   useEffect(() => {
     if (!isOpen) return;
 
+    document.body.classList.add('modal-open');
+    document.documentElement.classList.add('modal-open');
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
 
-    // Remove the fixed navigation bar while modal window is active so header parts are completely clear
+    // Remove the fixed navigation bar while modal window is active so header parts are completely clear on desktop & mobile
     const navbar = document.querySelector('nav');
     const originalNavDisplay = navbar ? navbar.style.display : '';
     if (navbar) {
@@ -50,6 +53,8 @@ export default function QaCaseStudyModal({ isOpen, onClose }) {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => {
+      document.body.classList.remove('modal-open');
+      document.documentElement.classList.remove('modal-open');
       document.body.style.overflow = originalOverflow;
       if (navbar) {
         navbar.style.display = originalNavDisplay;
@@ -195,9 +200,9 @@ export default function QaCaseStudyModal({ isOpen, onClose }) {
     "Web Testing"
   ];
 
-  return (
+  const modalContent = (
     <div 
-      className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-5 md:p-6 bg-[#1F0C31]/80 backdrop-blur-md overflow-y-auto"
+      className="fixed inset-0 z-[99999] flex items-center justify-center p-3 sm:p-5 md:p-6 pt-[max(1rem,env(safe-area-inset-top))] pb-[max(1rem,env(safe-area-inset-bottom))] bg-[#100B18]/85 backdrop-blur-md overflow-y-auto"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -209,10 +214,10 @@ export default function QaCaseStudyModal({ isOpen, onClose }) {
         exit={{ opacity: 0, scale: 0.96, y: 20 }}
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
         onClick={(e) => e.stopPropagation()}
-        className="bg-[#FAF8FE] border border-[#ECE4FA] rounded-[28px] sm:rounded-[36px] w-full max-w-4xl max-h-[92vh] flex flex-col shadow-2xl relative overflow-hidden my-auto"
+        className="bg-[#FAF8FE] dark:bg-[#1D1629] border border-[#ECE4FA] dark:border-[#2D2140] rounded-[28px] sm:rounded-[36px] w-full max-w-4xl max-h-[92vh] flex flex-col shadow-2xl relative overflow-hidden my-auto"
       >
         {/* TOP BAR / HEADER */}
-        <div className="sticky top-0 z-30 bg-[#FAF8FE]/95 backdrop-blur-md px-6 sm:px-8 py-5 border-b border-[#ECE4FA] flex items-center justify-between gap-4">
+        <div className="sticky top-0 z-30 bg-[#FAF8FE]/95 dark:bg-[#1D1629]/95 backdrop-blur-md px-6 sm:px-8 py-5 border-b border-[#ECE4FA] dark:border-[#2D2140] flex items-center justify-between gap-4">
           <div className="flex items-center gap-2.5">
             <span className="w-8 h-8 rounded-full bg-[#5D3EA8] text-white flex items-center justify-center text-xs font-bold shadow-xs">
               QA
@@ -227,7 +232,7 @@ export default function QaCaseStudyModal({ isOpen, onClose }) {
                   100% Pass
                 </span>
               </div>
-              <h2 id="qa-case-study-title" className="text-lg sm:text-xl font-serif font-bold text-[#3B1C54]">
+              <h2 id="qa-case-study-title" className="text-lg sm:text-xl font-serif font-bold text-[#3B1C54] dark:text-[#F5EFFB]">
                 SauceDemo Login Functionality
               </h2>
             </div>
@@ -238,17 +243,17 @@ export default function QaCaseStudyModal({ isOpen, onClose }) {
               href="/SauceDemo_test_report.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-[#DDD3F5] text-xs font-semibold text-[#5D3EA8] hover:bg-[#FAF8FE] hover:border-[#8B5CF6] transition-colors shadow-2xs"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#261D35] border border-[#DDD3F5] dark:border-[#2D2140] text-xs font-semibold text-[#5D3EA8] dark:text-[#C4B5FD] hover:bg-[#FAF8FE] dark:hover:bg-[#1D1629] hover:border-[#8B5CF6] transition-colors shadow-2xs"
               title="Open official PDF test report"
             >
-              <FileText className="w-3.5 h-3.5 text-[#8B5CF6]" />
+              <FileText className="w-3.5 h-3.5 text-[#8B5CF6] dark:text-[#A78BFA]" />
               <span>PDF Report</span>
               <ExternalLink className="w-3 h-3 opacity-60" />
             </a>
 
             <button
               onClick={onClose}
-              className="w-8 h-8 rounded-full bg-white border border-[#DDD3F5] text-[#3B1C54] hover:bg-[#5D3EA8] hover:text-white flex items-center justify-center transition-all cursor-pointer shadow-2xs"
+              className="w-8 h-8 rounded-full bg-white dark:bg-[#261D35] border border-[#DDD3F5] dark:border-[#2D2140] text-[#3B1C54] dark:text-[#F5EFFB] hover:bg-[#5D3EA8] hover:text-white dark:hover:bg-[#8B5CF6] flex items-center justify-center transition-all cursor-pointer shadow-2xs"
               aria-label="Close modal"
             >
               <X className="w-4 h-4" />
@@ -257,7 +262,7 @@ export default function QaCaseStudyModal({ isOpen, onClose }) {
         </div>
 
         {/* MODAL BODY (SCROLLABLE) */}
-        <div className="overflow-y-auto px-6 sm:px-8 py-6 space-y-8 text-[#2D2633]">
+        <div className="overflow-y-auto px-6 sm:px-8 py-6 space-y-8 text-[#2D2633] dark:text-[#C5B9D3]">
           
           {/* SECTION A: PROJECT OVERVIEW */}
           <section className="space-y-4">
@@ -805,4 +810,6 @@ export default function QaCaseStudyModal({ isOpen, onClose }) {
       </motion.div>
     </div>
   );
+
+  return typeof document !== 'undefined' ? createPortal(modalContent, document.body) : null;
 }

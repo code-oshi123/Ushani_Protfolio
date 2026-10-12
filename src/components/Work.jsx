@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import project01 from "../assets/project_card_01.png";
 import project02 from "../assets/project_card_02.png";
@@ -9,6 +10,26 @@ import project05 from "../assets/project_card_05.png";
 export default function Work() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [activeProjectModal, setActiveProjectModal] = useState(null);
+
+  useEffect(() => {
+    if (!activeProjectModal) return;
+    document.body.classList.add('modal-open');
+    document.documentElement.classList.add('modal-open');
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setActiveProjectModal(null);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.classList.remove('modal-open');
+      document.documentElement.classList.remove('modal-open');
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [activeProjectModal]);
 
   const projects = [
     {
@@ -151,13 +172,13 @@ export default function Work() {
       {/* Section Header with Category Filter Tabs */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 sm:mb-14 gap-6 relative z-10">
         <div className="space-y-2">
-          <span className="text-[12px] tracking-[0.28em] font-semibold text-[#8B6EED] uppercase block">
+          <span className="text-[12px] tracking-[0.28em] font-semibold text-[#8B6EED] dark:text-[#C4B5FD] uppercase block">
             MY WORK ✦
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#3B1C54] font-medium tracking-tight">
-            Selected Work <span className="text-[#8B5CF6]">✦</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#3B1C54] dark:text-[#F5EFFB] font-medium tracking-tight">
+            Selected Work <span className="text-[#8B5CF6] dark:text-[#A78BFA]">✦</span>
           </h2>
-          <p className="text-xs sm:text-sm text-[#2D2633]/70 max-w-md">
+          <p className="text-xs sm:text-sm text-[#2D2633]/70 dark:text-[#C5B9D3] max-w-md">
             Click any project card below to inspect testing scenarios,
             architecture, and engineering details.
           </p>
@@ -176,8 +197,8 @@ export default function Work() {
               onClick={() => setSelectedCategory(tab.id)}
               className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 cursor-pointer ${
                 selectedCategory === tab.id
-                  ? "bg-[#5D3EA8] text-white shadow-md scale-105"
-                  : "bg-white text-[#3B1C54] border border-[#ECE4FA] hover:border-[#8B5CF6]/50"
+                  ? "bg-[#5D3EA8] dark:bg-[#8B5CF6] text-white shadow-md scale-105"
+                  : "bg-white dark:bg-[#1D1629] text-[#3B1C54] dark:text-[#C5B9D3] border border-[#ECE4FA] dark:border-[#2D2140] hover:border-[#8B5CF6]/50 dark:hover:border-[#A78BFA]/50 hover:text-[#5D3EA8] dark:hover:text-[#F5EFFB]"
               }`}
             >
               {tab.label}
@@ -193,7 +214,7 @@ export default function Work() {
             <motion.div
               key={project.id}
               layout
-              className="group relative bg-[#FAF8FE] border border-[#ECE4FA] hover:border-[#8B5CF6] hover:ring-2 hover:ring-[#8B5CF6]/25 p-4.5 rounded-[28px] shadow-2xs hover:shadow-[0_20px_40px_rgba(139,92,246,0.18)] transition-all duration-300 flex flex-col justify-between cursor-pointer"
+              className="group relative bg-[#FAF8FE] dark:bg-[#1D1629] border border-[#ECE4FA] dark:border-[#2D2140] hover:border-[#8B5CF6] dark:hover:border-[#A78BFA] hover:ring-2 hover:ring-[#8B5CF6]/25 dark:hover:ring-[#A78BFA]/20 p-4.5 rounded-[28px] shadow-2xs hover:shadow-[0_20px_40px_rgba(139,92,246,0.18)] dark:hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)] transition-all duration-300 flex flex-col justify-between cursor-pointer"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
@@ -201,53 +222,26 @@ export default function Work() {
               onClick={() => setActiveProjectModal(project)}
             >
               <div className="space-y-3.5">
-                {/* Number Badge & Mockup Preview Container */}
-                {/* <div className="relative h-40 rounded-2xl bg-white border border-[#EDE4FA] overflow-hidden flex items-center justify-center p-2 shadow-inner">
-                  <span className="absolute top-2.5 left-2.5 z-10 w-6 h-6 rounded-full bg-[#5D3EA8] text-white font-bold text-[10px] flex items-center justify-center font-sans select-none shadow-xs group-hover:scale-110 transition-transform">
-                    {project.id}
-                  </span>
-
-                  <span className="absolute top-2.5 right-2.5 z-10 px-2 py-0.5 rounded-full bg-white/90 backdrop-blur-xs text-[9px] font-bold text-[#8B6EED] border border-[#ECE4FA] shadow-2xs">
-                    QA &amp; Dev
-                  </span>
-
-                  {project.link ? (
-                    <iframe
-                      src={project.link}
-                      title={`${project.title} live preview`}
-                      className="w-full h-full rounded-xl border-0"
-                      loading="lazy"
-                      scrolling="no"
-                    />
-                  ) : (
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover rounded-xl"
-                    />
-                  )}
-                </div> */}
-
                 {/* Number Badge & Aesthetic Browser Preview */}
-                <div className="relative h-40 rounded-2xl bg-white border border-[#EDE4FA] overflow-hidden shadow-inner">
+                <div className="relative h-40 rounded-2xl bg-white dark:bg-[#150F21] border border-[#EDE4FA] dark:border-[#2D2140] overflow-hidden shadow-inner">
                   {/* Browser Header */}
-                  <div className="absolute top-0 left-0 right-0 h-6 bg-[#F3EEFC] border-b border-[#EDE4FA] flex items-center px-3 gap-1.5 z-20">
-                    <span className="w-2 h-2 rounded-full bg-[#C4B2FF]" />
-                    <span className="w-2 h-2 rounded-full bg-[#D8C6F0]" />
-                    <span className="w-2 h-2 rounded-full bg-[#E8DDFD]" />
+                  <div className="absolute top-0 left-0 right-0 h-6 bg-[#F3EEFC] dark:bg-[#1C142B] border-b border-[#EDE4FA] dark:border-[#2D2140] flex items-center px-3 gap-1.5 z-20">
+                    <span className="w-2 h-2 rounded-full bg-[#FF5F56]/70 dark:bg-[#FF5F56]/60" />
+                    <span className="w-2 h-2 rounded-full bg-[#FFBD2E]/70 dark:bg-[#FFBD2E]/60" />
+                    <span className="w-2 h-2 rounded-full bg-[#27C93F]/70 dark:bg-[#27C93F]/60" />
 
-                    <span className="ml-2 text-[8px] text-[#8B6EED] truncate">
+                    <span className="ml-2 text-[8px] font-mono text-[#8B6EED] dark:text-[#C4B5FD] truncate">
                       {project.title}
                     </span>
                   </div>
 
                   {/* Project Number */}
-                  <span className="absolute top-8 left-2.5 z-20 w-6 h-6 rounded-full bg-[#5D3EA8] text-white font-bold text-[10px] flex items-center justify-center shadow-xs">
+                  <span className="absolute top-8 left-2.5 z-20 w-6 h-6 rounded-full bg-[#5D3EA8] dark:bg-[#7C3AED] text-white font-bold text-[10px] flex items-center justify-center shadow-xs">
                     {project.id}
                   </span>
 
                   {/* QA Badge */}
-                  <span className="absolute top-8 right-2.5 z-20 px-2 py-0.5 rounded-full bg-white/90 text-[9px] font-bold text-[#8B6EED] border border-[#ECE4FA]">
+                  <span className="absolute top-8 right-2.5 z-20 px-2.5 py-0.5 rounded-full bg-white/95 dark:bg-[#261D35]/95 text-[9px] font-bold text-[#8B6EED] dark:text-[#C4B5FD] border border-[#ECE4FA] dark:border-[#3D2C54] shadow-xs">
                     QA &amp; Dev
                   </span>
 
@@ -280,23 +274,23 @@ export default function Work() {
 
                 {/* Text Content with Title Slide-In on hover */}
                 <div className="space-y-1.5">
-                  <h3 className="text-base font-serif text-[#3B1C54] font-bold group-hover:text-[#5D3EA8] group-hover:translate-x-1.5 transition-all duration-300 leading-snug flex items-center gap-1.5">
+                  <h3 className="text-base font-serif text-[#3B1C54] dark:text-[#F5EFFB] font-bold group-hover:text-[#5D3EA8] dark:group-hover:text-[#C4B5FD] group-hover:translate-x-1.5 transition-all duration-300 leading-snug flex items-center gap-1.5">
                     <span>{project.title}</span>
-                    <span className="opacity-0 group-hover:opacity-100 text-[#8B5CF6] text-xs transition-opacity duration-300">
+                    <span className="opacity-0 group-hover:opacity-100 text-[#8B5CF6] dark:text-[#A78BFA] text-xs transition-opacity duration-300">
                       ✦
                     </span>
                   </h3>
-                  <p className="text-[11.5px] text-[#2D2633]/75 leading-relaxed line-clamp-3 min-h-[48px]">
+                  <p className="text-[11.5px] text-[#2D2633]/75 dark:text-[#C5B9D3] leading-relaxed line-clamp-3 min-h-[48px]">
                     {project.description}
                   </p>
                 </div>
 
-                {/* Tech Badges */}
-                <div className="flex flex-wrap gap-1 pt-1">
+                {/* Tech Badges (High Contrast in both Light & Dark mode) */}
+                <div className="flex flex-wrap gap-1.5 pt-1">
                   {project.tech.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[9px] font-semibold text-[#3B1C54]/80 bg-white border border-[#E8DDFD] px-2 py-0.5 rounded-md uppercase tracking-wider"
+                      className="text-[9.5px] font-semibold text-[#5D3EA8] dark:text-[#C4B5FD] bg-[#F5EFFE] dark:bg-[#261D35] border border-[#E8DDFD] dark:border-[#3D2C54] hover:border-[#8B5CF6] dark:hover:border-[#A78BFA] px-2.5 py-1 rounded-md uppercase tracking-wider transition-colors"
                     >
                       {tag}
                     </span>
@@ -304,37 +298,13 @@ export default function Work() {
                 </div>
               </div>
 
-              {/* <div>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="text-[10.5px] font-semibold text-[#5D3EA8] hover:text-[#8B5CF6] transition-colors"
-                >
-                  View Project →
-                </a>
-              </div>
-
-              <div>
-                <a
-                  href={project.repoLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="text-[10.5px] font-semibold text-[#5D3EA8] hover:text-[#8B5CF6] transition-colors"
-                >
-                  View GitHub Repository →
-                </a>
-              </div> */}
-
               {/* Card Footer: Role & Diagonal Arrow */}
-              <div className="pt-3.5 mt-3 border-t border-[#ECE4FA] flex justify-between items-center gap-2">
-                <span className="text-[10.5px] font-semibold text-[#3B1C54]/80">
-                  Role: {project.role}
+              <div className="pt-3.5 mt-3 border-t border-[#ECE4FA] dark:border-[#2D2140] flex justify-between items-center gap-2">
+                <span className="text-[11px] font-medium text-[#2D2633]/75 dark:text-[#C5B9D3]">
+                  Role: <strong className="font-semibold text-[#3B1C54] dark:text-[#F5EFFB]">{project.role}</strong>
                 </span>
 
-                <div className="w-8 h-8 rounded-full bg-white border border-[#EDE4FA] text-[#5D3EA8] flex items-center justify-center group-hover:bg-[#5D3EA8] group-hover:text-white group-hover:border-[#5D3EA8] transition-all duration-300 shadow-2xs shrink-0">
+                <div className="w-8 h-8 rounded-full bg-white dark:bg-[#261D35] border border-[#EDE4FA] dark:border-[#3D2C54] text-[#5D3EA8] dark:text-[#C4B5FD] flex items-center justify-center group-hover:bg-[#5D3EA8] dark:group-hover:bg-[#8B5CF6] group-hover:text-white dark:group-hover:text-white group-hover:border-[#5D3EA8] dark:group-hover:border-[#8B5CF6] transition-all duration-300 shadow-2xs shrink-0">
                   <svg
                     className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
                     fill="none"
@@ -356,57 +326,62 @@ export default function Work() {
       </div>
 
       {/* INTERACTIVE PROJECT DETAIL MODAL */}
-      <AnimatePresence>
-        {activeProjectModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1F0C31]/60 backdrop-blur-sm">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="bg-[#FAF8FE] border border-[#ECE4FA] rounded-[32px] max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative overflow-hidden space-y-6"
+      {typeof document !== 'undefined' && createPortal(
+        <AnimatePresence>
+          {activeProjectModal && (
+            <div 
+              className="fixed inset-0 z-[99999] flex items-center justify-center p-4 pt-[max(1rem,env(safe-area-inset-top))] pb-[max(1rem,env(safe-area-inset-bottom))] bg-[#100B18]/85 backdrop-blur-sm overflow-y-auto"
+              onClick={() => setActiveProjectModal(null)}
             >
-              {/* Close button */}
-              <button
-                onClick={() => setActiveProjectModal(null)}
-                className="absolute top-5 right-5 w-8 h-8 rounded-full bg-white border border-[#DDD3F5] text-[#3B1C54] hover:bg-[#5D3EA8] hover:text-white flex items-center justify-center transition-colors cursor-pointer"
-                aria-label="Close modal"
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                onClick={(e) => e.stopPropagation()}
+                className="bg-[#FAF8FE] dark:bg-[#1D1629] border border-[#ECE4FA] dark:border-[#2D2140] rounded-[32px] max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative overflow-hidden space-y-6 my-auto"
               >
-                ✕
-              </button>
+                {/* Close button */}
+                <button
+                  onClick={() => setActiveProjectModal(null)}
+                  className="absolute top-5 right-5 w-8 h-8 rounded-full bg-white dark:bg-[#261D35] border border-[#DDD3F5] dark:border-[#2D2140] text-[#3B1C54] dark:text-[#F5EFFB] hover:bg-[#5D3EA8] hover:text-white flex items-center justify-center transition-colors cursor-pointer shadow-2xs"
+                  aria-label="Close modal"
+                >
+                  ✕
+                </button>
 
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <span className="px-3 py-1 rounded-full bg-[#5D3EA8] text-white text-[10px] font-bold tracking-widest uppercase">
+                  <span className="px-3 py-1 rounded-full bg-[#5D3EA8] dark:bg-[#7C3AED] text-white text-[10px] font-bold tracking-widest uppercase">
                     PROJECT {activeProjectModal.id}
                   </span>
-                  <span className="text-xs font-semibold text-[#8B6EED]">
+                  <span className="text-xs font-semibold text-[#8B6EED] dark:text-[#C4B5FD]">
                     Role: {activeProjectModal.role}
                   </span>
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-[#3B1C54]">
+                <h3 className="text-2xl font-serif font-bold text-[#3B1C54] dark:text-[#F5EFFB]">
                   {activeProjectModal.title}
                 </h3>
-                <p className="text-xs font-medium text-[#8B6EED]">
+                <p className="text-xs font-medium text-[#8B6EED] dark:text-[#C4B5FD]">
                   {activeProjectModal.tagline}
                 </p>
               </div>
 
-              <p className="text-xs sm:text-[13.5px] text-[#2D2633]/85 leading-relaxed">
+              <p className="text-xs sm:text-[13.5px] text-[#2D2633]/85 dark:text-[#C5B9D3] leading-relaxed">
                 {activeProjectModal.fullDetails}
               </p>
 
               {/* QA Test Highlights */}
-              <div className="space-y-2.5 bg-white p-4 rounded-2xl border border-[#ECE4FA]">
-                <h4 className="text-xs font-bold text-[#5D3EA8] uppercase tracking-wider">
+              <div className="space-y-2.5 bg-white dark:bg-[#160E22] p-4 rounded-2xl border border-[#ECE4FA] dark:border-[#2D2140]">
+                <h4 className="text-xs font-bold text-[#5D3EA8] dark:text-[#C4B5FD] uppercase tracking-wider">
                   🔍 Quality Assurance &amp; Testing Highlights:
                 </h4>
                 <ul className="space-y-1.5">
                   {activeProjectModal.qaHighlights.map((qa, i) => (
                     <li
                       key={i}
-                      className="text-xs text-[#2D2633]/85 flex items-start gap-2"
+                      className="text-xs text-[#2D2633]/85 dark:text-[#C5B9D3] flex items-start gap-2"
                     >
-                      <span className="text-[#8B5CF6] font-bold">✓</span>
+                      <span className="text-[#8B5CF6] dark:text-[#A78BFA] font-bold">✓</span>
                       <span>{qa}</span>
                     </li>
                   ))}
@@ -415,14 +390,14 @@ export default function Work() {
 
               {/* Tech Stack */}
               <div className="space-y-2">
-                <span className="text-[11px] font-bold text-[#3B1C54]/75 uppercase tracking-wider block">
+                <span className="text-[11px] font-bold text-[#3B1C54]/75 dark:text-[#C5B9D3] uppercase tracking-wider block">
                   Technologies Used:
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {activeProjectModal.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-3 py-1 rounded-full bg-white border border-[#DDD3F5] text-xs font-semibold text-[#5D3EA8]"
+                      className="px-3 py-1 rounded-full bg-white dark:bg-[#261D35] border border-[#DDD3F5] dark:border-[#3D2C54] text-xs font-semibold text-[#5D3EA8] dark:text-[#C4B5FD]"
                     >
                       {t}
                     </span>
@@ -525,7 +500,9 @@ export default function Work() {
             </motion.div>
           </div>
         )}
-      </AnimatePresence>
+        </AnimatePresence>,
+        document.body
+      )}
     </section>
   );
 }

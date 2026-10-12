@@ -2,6 +2,8 @@
 
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-themeBg: #F6F3F9;
   --color-themeLavender: #C3B5FD;
@@ -47,15 +49,164 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
     color: #2D2633;
     background-color: #F6F3F9;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html.dark {
+    color-scheme: dark;
+    color: #C5B9D3;
+    background-color: #100B18;
   }
 
   body {
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .dark body {
+    background-color: #100B18;
+    color: #C5B9D3;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
   }
+}
+
+/* ==========================================================================
+   MODAL LOCK: COMPLETELY HIDE NAVIGATION ON DESKTOP & MOBILE
+   ========================================================================== */
+body.modal-open nav,
+html.modal-open nav,
+body.modal-open header,
+html.modal-open header {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* ==========================================================================
+   SOFT MIDNIGHT DARK MODE PALETTE & SYSTEM
+   Main background:       #100B18
+   Secondary background:  #17111F
+   Card background:       #1D1629
+   Elevated surfaces:     #261D35
+   Primary lavender:      #A78BFA
+   Soft lavender:         #C4B5FD
+   Main text:             #F5EFFB
+   Secondary text:        #C5B9D3
+   Subtle borders:        rgba(167, 139, 250, 0.15)
+   ========================================================================== */
+
+.dark {
+  --color-themeBg: #100B18;
+  --color-themeCharcoal: #C5B9D3;
+  --color-themePlum: #F5EFFB;
+  --color-themeLilac: #261D35;
+  --color-themeLavender: #A78BFA;
+  --color-themeAccent: #A78BFA;
+}
+
+/* Main background surfaces */
+.dark .bg-themeBg {
+  background-color: #100B18 !important;
+}
+
+/* Card surfaces */
+.dark .bg-\[\#FAF8FE\],
+.dark .bg-\[\#FAF8FE\]\/80,
+.dark .bg-\[\#FAF8FE\]\/90 {
+  background-color: #1D1629 !important;
+}
+
+/* White containers -> Elevated cards */
+.dark .bg-white {
+  background-color: #261D35 !important;
+}
+
+.dark .bg-white\/70,
+.dark .bg-white\/75,
+.dark .bg-white\/80,
+.dark .bg-white\/85,
+.dark .bg-white\/90,
+.dark .bg-white\/95 {
+  background-color: rgba(29, 22, 41, 0.9) !important;
+}
+
+/* Secondary recessed backgrounds (browser headers, sub-boxes) */
+.dark .bg-\[\#F3EEFC\],
+.dark .bg-\[\#FAF8FE\]\/50,
+.dark .bg-\[\#FAF7FF\],
+.dark .bg-\[\#FCFAFE\],
+.dark .bg-\[\#F6F0FE\] {
+  background-color: #17111F !important;
+}
+
+/* Borders */
+.dark .border-\[\#ECE4FA\],
+.dark .border-\[\#EDE4FA\],
+.dark .border-\[\#DDD3F5\],
+.dark .border-\[\#E8DDFD\],
+.dark .border-\[\#EAE2F6\],
+.dark .border-\[\#EAE6FF\],
+.dark .border-themeLavender\/20,
+.dark .border-themeLavender\/35,
+.dark .border-themeLavender\/60 {
+  border-color: rgba(167, 139, 250, 0.15) !important;
+}
+
+/* Typography */
+.dark .text-\[\#3B1C54\],
+.dark .text-\[\#3B1C54\]\/70,
+.dark .text-\[\#3B1C54\]\/75,
+.dark .text-\[\#3B1C54\]\/80,
+.dark .text-\[\#3B1C54\]\/85,
+.dark .text-\[\#3B1C54\]\/90,
+.dark .text-\[\#2D1B4E\],
+.dark .text-themePlum {
+  color: #F5EFFB !important;
+}
+
+.dark .text-\[\#2D2633\],
+.dark .text-\[\#2D2633\]\/70,
+.dark .text-\[\#2D2633\]\/75,
+.dark .text-\[\#2D2633\]\/80,
+.dark .text-\[\#2D2633\]\/85,
+.dark .text-themeCharcoal,
+.dark .text-themeCharcoal\/65,
+.dark .text-themeCharcoal\/80 {
+  color: #C5B9D3 !important;
+}
+
+.dark .text-\[\#8B6EED\],
+.dark .text-\[\#8B6EED\]\/80 {
+  color: #C4B5FD !important;
+}
+
+.dark .text-\[\#5D3EA8\] {
+  color: #A78BFA !important;
+}
+
+/* Subtle gradients in dark mode */
+.dark .bg-gradient-to-r.from-\[\#FAF8FE\].via-\[\#F5EFFE\].to-\[\#FAF8FE\],
+.dark .bg-gradient-to-br.from-\[\#FAF8FE\].via-white.to-\[\#F7F2FD\] {
+  background-image: linear-gradient(to bottom right, #17111F, #1D1629, #17111F) !important;
+}
+
+.dark .bg-gradient-to-b.from-\[\#F6F0FE\].via-\[\#FAF7FF\].to-\[\#FCFAFE\] {
+  background-image: linear-gradient(to bottom, #100B18, #17111F, #100B18) !important;
+}
+
+/* Modals in Dark Mode */
+.dark [role="dialog"] .bg-\[\#FAF8FE\] {
+  background-color: #17111F !important;
+  border-color: rgba(167, 139, 250, 0.2) !important;
+}
+
+.dark [role="dialog"] .border-\[\#ECE4FA\],
+.dark [role="dialog"] .border-\[\#EDE4FA\] {
+  border-color: rgba(167, 139, 250, 0.15) !important;
 }
 
 /* Glassmorphism utility */
@@ -67,6 +218,14 @@
   box-shadow: 0 8px 32px 0 rgba(195, 181, 253, 0.15);
 }
 
+.dark .glass-panel {
+  background: rgba(23, 17, 31, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(167, 139, 250, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
 .glass-panel-dark {
   background: rgba(59, 28, 84, 0.05);
   backdrop-filter: blur(8px);
@@ -74,26 +233,9 @@
   border: 1px solid rgba(59, 28, 84, 0.1);
 }
 
-/* Photo Integration Mask */
-.hero-portrait-mask {
-  mask-image: radial-gradient(
-    circle at 50% 35%,
-    black 35%,
-    rgba(0, 0, 0, 0.85) 55%,
-    rgba(0, 0, 0, 0.3) 72%,
-    transparent 88%
-  ),
-  linear-gradient(to bottom, black 70%, transparent 98%);
-  mask-composite: intersect;
-  -webkit-mask-image: radial-gradient(
-    circle at 50% 35%,
-    black 35%,
-    rgba(0, 0, 0, 0.85) 55%,
-    rgba(0, 0, 0, 0.3) 72%,
-    transparent 88%
-  ),
-  -webkit-linear-gradient(to bottom, black 70%, transparent 98%);
-  -webkit-mask-composite: source-in;
+.dark .glass-panel-dark {
+  background: rgba(16, 11, 24, 0.5);
+  border: 1px solid rgba(167, 139, 250, 0.15);
 }
 
 /* Custom scroll bar */
@@ -105,39 +247,28 @@
   background: #F6F3F9;
 }
 
+.dark ::-webkit-scrollbar-track {
+  background: #100B18;
+}
+
 ::-webkit-scrollbar-thumb {
   background: #D5CBFF;
   border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #3B2B54;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #B5A5F5;
 }
 
-/* Custom glowing effects */
-.glow-purple {
-  filter: drop-shadow(0 0 25px rgba(195, 181, 253, 0.6));
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #5D4385;
 }
 
-.glow-plum {
-  filter: drop-shadow(0 0 15px rgba(59, 28, 84, 0.2));
-}
-
-/* Magnifying glass custom float */
-@keyframes float-lens {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-8px) rotate(-5deg);
-  }
-}
-
-.animate-float-lens {
-  animation: float-lens 6s ease-in-out infinite;
-}
-
-/* Premium Card hover glows */
+/* Subtle Card hover glows */
 .glass-card-hover {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -149,10 +280,15 @@
   background: rgba(255, 255, 255, 0.7) !important;
 }
 
+.dark .glass-card-hover:hover {
+  border-color: rgba(167, 139, 250, 0.35) !important;
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.35) !important;
+  background: rgba(38, 29, 53, 0.9) !important;
+}
+
 /* Hide default cursor on desktop when using custom cursor */
 @media (min-width: 768px) and (pointer: fine) {
   body, a, button, [role="button"], input, select, textarea {
     cursor: none !important;
   }
 }
-

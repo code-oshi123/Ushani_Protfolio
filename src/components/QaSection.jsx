@@ -114,50 +114,50 @@ export default function QaSection() {
 
       {/* SECTION HEADER */}
       <div className="text-center space-y-3 mb-14 sm:mb-18 relative z-10">
-        <span className="text-[12px] tracking-[0.28em] font-semibold text-[#8B6EED] uppercase block">
+        <span className="text-[12px] tracking-[0.28em] font-semibold text-[#8B6EED] dark:text-[#C4B5FD] uppercase block">
           QA MINDSET ✦
         </span>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#3B1C54] font-medium tracking-tight">
-          Behind the Screen <span className="text-[#8B5CF6]">🔍</span>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#3B1C54] dark:text-[#F5EFFB] font-medium tracking-tight">
+          Behind the Screen <span className="text-[#8B5CF6] dark:text-[#A78BFA]">🔍</span>
         </h2>
-        <p className="text-sm sm:text-base text-[#2D2633]/75 max-w-xl mx-auto leading-relaxed">
+        <p className="text-sm sm:text-base text-[#2D2633]/75 dark:text-[#C5B9D3] max-w-xl mx-auto leading-relaxed">
           "I look for what others might miss." — exploring applications with curiosity, rigor, and a quality-driven engineering mindset.
         </p>
       </div>
 
       {/* INTERACTIVE QA WORKFLOW CONTAINER */}
       <motion.div 
-        className="bg-[#FAF8FE] border border-[#ECE4FA] rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 lg:p-14 shadow-sm relative overflow-hidden z-10"
+        className="bg-[#FAF8FE] dark:bg-[#1D1629] border border-[#ECE4FA] dark:border-[#2D2140] rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 lg:p-14 shadow-sm relative overflow-hidden z-10 transition-colors duration-300"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
         {/* Ambient Top Glow */}
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-themeLavender/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-themeLavender/15 dark:bg-[#A78BFA]/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="space-y-10 relative z-10">
           
           {/* Top Bar: Explanatory Tag */}
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 pb-6 border-b border-[#ECE4FA]">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 pb-6 border-b border-[#ECE4FA] dark:border-[#2D2140]">
             <div>
-              <span className="text-xs font-bold tracking-[0.2em] text-[#8B6EED] uppercase block">
+              <span className="text-xs font-bold tracking-[0.2em] text-[#8B6EED] dark:text-[#C4B5FD] uppercase block">
                 INTERACTIVE QA LIFE CYCLE
               </span>
-              <p className="text-xs text-[#2D2633]/70 pt-0.5">
+              <p className="text-xs text-[#2D2633]/70 dark:text-[#C5B9D3] pt-0.5">
                 Click any phase below to inspect the testing methodology and deliverables.
               </p>
             </div>
-            <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-[#EDE4FA] text-xs font-bold text-[#5D3EA8] shadow-2xs">
+            <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#261D35] border border-[#EDE4FA] dark:border-[#2D2140] text-xs font-bold text-[#5D3EA8] dark:text-[#C4B5FD] shadow-2xs">
               <span>Phase {qaSteps[activeStep].id} of 05</span>
-              <span className="text-[#8B5CF6]">✦</span>
+              <span className="text-[#8B5CF6] dark:text-[#A78BFA]">✦</span>
             </div>
           </div>
 
           {/* 5-Step Clickable Interactive Process Buttons with Animated Progress Line */}
           <div className="relative">
             {/* Animated Progress Connecting Line */}
-            <div className="hidden lg:block absolute top-7 left-8 right-8 h-0.5 bg-[#EDE4FA] pointer-events-none z-0">
+            <div className="hidden lg:block absolute top-7 left-8 right-8 h-0.5 bg-[#EDE4FA] dark:bg-[#2D2140] pointer-events-none z-0">
               <motion.div 
                 className="h-full bg-gradient-to-r from-[#8B5CF6] via-[#A78BFA] to-[#5D3EA8] origin-left"
                 initial={{ scaleX: 0 }}
@@ -177,15 +177,15 @@ export default function QaSection() {
                     onClick={() => setActiveStep(idx)}
                     className={`p-4 rounded-2xl text-left transition-all duration-300 flex flex-col justify-between gap-3 relative border cursor-pointer group ${
                       isActive
-                        ? 'bg-white border-[#8B5CF6] shadow-md -translate-y-1 ring-2 ring-[#8B5CF6]/20'
-                        : 'bg-white/70 border-[#ECE4FA] hover:border-[#8B5CF6]/50 hover:bg-white hover:shadow-xs'
+                        ? 'bg-white dark:bg-[#261D35] border-[#8B5CF6] dark:border-[#A78BFA] shadow-md -translate-y-1 ring-2 ring-[#8B5CF6]/20'
+                        : 'bg-white/70 dark:bg-[#17111F] border-[#ECE4FA] dark:border-[#2D2140] hover:border-[#8B5CF6]/50 hover:bg-white dark:hover:bg-[#261D35] hover:shadow-xs'
                     }`}
                   >
                     <div className="flex justify-between items-center w-full">
                       <span className={`w-7 h-7 rounded-full font-bold text-xs flex items-center justify-center transition-all duration-300 ${
                         isActive 
-                          ? 'bg-[#5D3EA8] text-white shadow-xs scale-110' 
-                          : 'bg-[#FAF8FE] border border-[#DDD3F5] text-[#5D3EA8] group-hover:bg-[#5D3EA8] group-hover:text-white'
+                          ? 'bg-[#5D3EA8] dark:bg-[#8B5CF6] text-white shadow-xs scale-110' 
+                          : 'bg-[#FAF8FE] dark:bg-[#1D1629] border border-[#DDD3F5] dark:border-[#2D2140] text-[#5D3EA8] dark:text-[#C4B5FD] group-hover:bg-[#5D3EA8] group-hover:text-white'
                       }`}>
                         {step.id}
                       </span>
@@ -202,11 +202,11 @@ export default function QaSection() {
 
                     <div>
                       <span className={`text-[10px] font-bold tracking-wider uppercase block ${
-                        isActive ? 'text-[#8B5CF6]' : 'text-[#8B6EED]/80'
+                        isActive ? 'text-[#8B5CF6] dark:text-[#A78BFA]' : 'text-[#8B6EED]/80 dark:text-[#C4B5FD]/80'
                       }`}>
                         {step.name}
                       </span>
-                      <span className="text-xs font-serif font-bold text-[#3B1C54] line-clamp-1">
+                      <span className="text-xs font-serif font-bold text-[#3B1C54] dark:text-[#F5EFFB] line-clamp-1">
                         {step.title}
                       </span>
                     </div>
@@ -214,7 +214,7 @@ export default function QaSection() {
                     {isActive && (
                       <motion.div 
                         layoutId="activeStepIndicator"
-                        className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-8 h-1 bg-[#8B5CF6] rounded-full"
+                        className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-8 h-1 bg-[#8B5CF6] dark:bg-[#A78BFA] rounded-full"
                       />
                     )}
                   </button>
@@ -231,50 +231,50 @@ export default function QaSection() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.3 }}
-              className="bg-white/90 border border-[#ECE4FA] rounded-3xl p-6 sm:p-8 shadow-sm space-y-6"
+              className="bg-white/90 dark:bg-[#17111F] border border-[#ECE4FA] dark:border-[#2D2140] rounded-3xl p-6 sm:p-8 shadow-sm space-y-6"
             >
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-4 border-b border-[#ECE4FA]/80">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-4 border-b border-[#ECE4FA]/80 dark:border-[#2D2140]">
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <span className="px-3 py-1 rounded-full bg-[#FAF8FE] border border-[#DDD3F5] text-[10px] font-bold text-[#5D3EA8] uppercase tracking-widest font-mono">
+                    <span className="px-3 py-1 rounded-full bg-[#FAF8FE] dark:bg-[#261D35] border border-[#DDD3F5] dark:border-[#2D2140] text-[10px] font-bold text-[#5D3EA8] dark:text-[#C4B5FD] uppercase tracking-widest font-mono">
                       STAGE {qaSteps[activeStep].id} • {qaSteps[activeStep].name}
                     </span>
                     <span className="text-sm select-none">{qaSteps[activeStep].icon}</span>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#3B1C54]">
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#3B1C54] dark:text-[#F5EFFB]">
                     {qaSteps[activeStep].title}
                   </h3>
-                  <p className="text-xs sm:text-[13px] font-medium text-[#8B6EED]">
+                  <p className="text-xs sm:text-[13px] font-medium text-[#8B6EED] dark:text-[#C4B5FD]">
                     "{qaSteps[activeStep].tagline}"
                   </p>
                 </div>
 
-                <div className="shrink-0 hidden sm:flex items-center gap-2 px-4 py-2 rounded-2xl bg-[#FAF8FE] border border-[#ECE4FA] text-xs font-semibold text-[#3B1C54]">
+                <div className="shrink-0 hidden sm:flex items-center gap-2 px-4 py-2 rounded-2xl bg-[#FAF8FE] dark:bg-[#261D35] border border-[#ECE4FA] dark:border-[#2D2140] text-xs font-semibold text-[#3B1C54] dark:text-[#F5EFFB]">
                   <span>🔍 Quality Inspection</span>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                 <div className="lg:col-span-6 space-y-3">
-                  <h4 className="text-xs font-bold text-[#3B1C54] uppercase tracking-wider">
+                  <h4 className="text-xs font-bold text-[#3B1C54] dark:text-[#F5EFFB] uppercase tracking-wider">
                     How I Approach This Stage
                   </h4>
-                  <p className="text-xs sm:text-[13.5px] text-[#2D2633]/85 leading-relaxed">
+                  <p className="text-xs sm:text-[13.5px] text-[#2D2633]/85 dark:text-[#C5B9D3] leading-relaxed">
                     {qaSteps[activeStep].desc}
                   </p>
                 </div>
 
                 <div className="lg:col-span-6 space-y-3">
-                  <h4 className="text-xs font-bold text-[#3B1C54] uppercase tracking-wider">
+                  <h4 className="text-xs font-bold text-[#3B1C54] dark:text-[#F5EFFB] uppercase tracking-wider">
                     Key Deliverables &amp; Artifacts
                   </h4>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {qaSteps[activeStep].activities.map((act, i) => (
                       <li 
                         key={i}
-                        className="flex items-start gap-2 p-2.5 rounded-xl bg-[#FAF8FE] border border-[#EDE4FA] text-xs text-[#2D2633]/85 font-medium"
+                        className="flex items-start gap-2 p-2.5 rounded-xl bg-[#FAF8FE] dark:bg-[#1D1629] border border-[#EDE4FA] dark:border-[#2D2140] text-xs text-[#2D2633]/85 dark:text-[#C5B9D3] font-medium"
                       >
-                        <span className="text-[#8B5CF6] font-bold text-xs mt-0.5">✓</span>
+                        <span className="text-[#8B5CF6] dark:text-[#A78BFA] font-bold text-xs mt-0.5">✓</span>
                         <span className="leading-snug">{act}</span>
                       </li>
                     ))}
@@ -285,16 +285,16 @@ export default function QaSection() {
           </AnimatePresence>
 
           {/* Testing Skills Matrix (Pills) */}
-          <div className="pt-6 border-t border-[#ECE4FA] flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="pt-6 border-t border-[#ECE4FA] dark:border-[#2D2140] flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="space-y-2.5 text-center md:text-left">
-              <span className="text-[11px] font-bold text-[#3B1C54]/75 uppercase tracking-wider block">
+              <span className="text-[11px] font-bold text-[#3B1C54]/75 dark:text-[#F5EFFB]/75 uppercase tracking-wider block">
                 Testing Specializations &amp; Methodologies
               </span>
               <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                 {qaSkillTags.map((tag) => (
                   <span 
                     key={tag.name}
-                    className="text-xs font-semibold text-[#3B1C54] bg-white border border-[#ECE4FA] hover:border-[#8B5CF6]/50 hover:bg-[#FAF8FE] px-3.5 py-1.5 rounded-full shadow-2xs transition-all hover:scale-105 cursor-default"
+                    className="text-xs font-semibold text-[#3B1C54] dark:text-[#F5EFFB] bg-white dark:bg-[#261D35] border border-[#ECE4FA] dark:border-[#2D2140] hover:border-[#8B5CF6]/50 hover:bg-[#FAF8FE] dark:hover:bg-[#1D1629] px-3.5 py-1.5 rounded-full shadow-2xs transition-all hover:scale-105 cursor-default"
                   >
                     {tag.name}
                   </span>
@@ -303,7 +303,7 @@ export default function QaSection() {
             </div>
 
             {/* Floating Magnifying Glass Badge */}
-            <div className="shrink-0 flex items-center gap-3 p-3.5 rounded-2xl bg-white border border-[#ECE4FA] shadow-2xs">
+            <div className="shrink-0 flex items-center gap-3 p-3.5 rounded-2xl bg-white dark:bg-[#17111F] border border-[#ECE4FA] dark:border-[#2D2140] shadow-2xs">
               <motion.span 
                 className="text-3xl select-none"
                 animate={{ rotate: [-5, 8, -5], y: [0, -3, 0] }}
@@ -312,8 +312,8 @@ export default function QaSection() {
                 🔍
               </motion.span>
               <div className="text-left pr-2">
-                <div className="text-xs font-bold text-[#3B1C54]">Detail-Oriented</div>
-                <div className="text-[10px] text-[#8B6EED] font-semibold">Zero-Bug Standard</div>
+                <div className="text-xs font-bold text-[#3B1C54] dark:text-[#F5EFFB]">Detail-Oriented</div>
+                <div className="text-[10px] text-[#8B6EED] dark:text-[#C4B5FD] font-semibold">Zero-Bug Standard</div>
               </div>
             </div>
           </div>

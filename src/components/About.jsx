@@ -21,14 +21,14 @@ export default function About() {
     >
       {/* Outer Rounded Container matching Mockup */}
       <motion.div 
-        className="bg-[#FAF8FE] border border-[#ECE4FA] rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 lg:p-12 shadow-sm relative overflow-hidden"
+        className="bg-[#FAF8FE] dark:bg-[#1D1629] border border-[#ECE4FA] dark:border-[#2D2140] rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 lg:p-12 shadow-sm relative overflow-hidden transition-colors duration-300"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.7 }}
       >
         {/* Subtle Ambient Background Blob */}
-        <div className="absolute top-0 right-0 w-80 h-80 bg-themeLavender/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-80 h-80 bg-themeLavender/15 dark:bg-[#A78BFA]/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
           
@@ -36,18 +36,18 @@ export default function About() {
           <div className="lg:col-span-5 space-y-6">
             {/* Eyebrow */}
             <div className="flex items-center gap-2">
-              <span className="text-[12px] tracking-[0.25em] font-semibold text-[#8B6EED] uppercase">
+              <span className="text-[12px] tracking-[0.25em] font-semibold text-[#8B6EED] dark:text-[#C4B5FD] uppercase">
                 ABOUT ME ✦
               </span>
             </div>
 
             {/* Headline */}
-            <h2 className="text-3xl sm:text-4xl font-serif text-[#3B1C54] font-medium leading-tight">
-              A little about me <span className="text-[#8B5CF6]">✦</span>
+            <h2 className="text-3xl sm:text-4xl font-serif text-[#3B1C54] dark:text-[#F5EFFB] font-medium leading-tight">
+              A little about me <span className="text-[#8B5CF6] dark:text-[#A78BFA]">✦</span>
             </h2>
 
             {/* Description */}
-            <p className="text-[#2D2633]/80 text-[14px] sm:text-[15px] leading-relaxed">
+            <p className="text-[#2D2633]/80 dark:text-[#C5B9D3] text-[14px] sm:text-[15px] leading-relaxed">
               I'm a Computer Science undergraduate with a passion for building, testing and improving digital products. I love solving problems, exploring details and working with others to create meaningful solutions.
             </p>
 
@@ -61,14 +61,14 @@ export default function About() {
                   onClick={() => setHoveredTrait(hoveredTrait?.name === trait.name ? null : trait)}
                   className={`flex items-center gap-2 px-3.5 py-2.5 rounded-full border transition-all duration-200 cursor-pointer ${
                     hoveredTrait?.name === trait.name
-                      ? 'bg-white border-[#8B5CF6] shadow-sm scale-102 ring-1 ring-[#8B5CF6]/30'
-                      : 'bg-white/80 border-[#ECE4FA] shadow-2xs hover:bg-white hover:border-[#8B5CF6]/45'
+                      ? 'bg-white dark:bg-[#261D35] border-[#8B5CF6] dark:border-[#A78BFA] shadow-sm scale-102 ring-1 ring-[#8B5CF6]/30'
+                      : 'bg-white/80 dark:bg-[#17111F] border-[#ECE4FA] dark:border-[#2D2140] shadow-2xs hover:bg-white dark:hover:bg-[#261D35] hover:border-[#8B5CF6]/45'
                   }`}
                   whileHover={{ scale: 1.04, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <span className="text-sm select-none shrink-0">{trait.icon}</span>
-                  <span className="text-xs font-semibold text-[#3B1C54] whitespace-nowrap">{trait.name}</span>
+                  <span className="text-xs font-semibold text-[#3B1C54] dark:text-[#F5EFFB] whitespace-nowrap">{trait.name}</span>
                 </motion.div>
               ))}
             </div>
@@ -79,14 +79,14 @@ export default function About() {
                 <motion.p 
                   initial={{ opacity: 0, y: 3 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-xs font-medium text-[#8B6EED] flex items-center gap-1.5"
+                  className="text-xs font-medium text-[#8B6EED] dark:text-[#C4B5FD] flex items-center gap-1.5"
                 >
                   <span>{hoveredTrait.icon}</span>
                   <span>{hoveredTrait.name}:</span>
-                  <span className="text-[#2D2633]/80">{hoveredTrait.hint}</span>
+                  <span className="text-[#2D2633]/80 dark:text-[#C5B9D3]">{hoveredTrait.hint}</span>
                 </motion.p>
               ) : (
-                <p className="text-[11px] text-[#2D2633]/50 italic">
+                <p className="text-[11px] text-[#2D2633]/50 dark:text-[#C5B9D3]/50 italic">
                   Hover or tap any strength to view QA focus
                 </p>
               )}

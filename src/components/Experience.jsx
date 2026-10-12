@@ -173,13 +173,13 @@ export default function Experience() {
 
       {/* SECTION HEADER */}
       <div className="text-center space-y-3 mb-12 sm:mb-16 relative z-10">
-        <span className="text-[12px] tracking-[0.28em] font-semibold text-[#8B6EED] uppercase block">
+        <span className="text-[12px] tracking-[0.28em] font-semibold text-[#8B6EED] dark:text-[#C4B5FD] uppercase block">
           CAREER &amp; EDUCATION ✦
         </span>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#3B1C54] font-medium tracking-tight">
-          Where I'm Growing <span className="text-[#8B5CF6]">🎓</span>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#3B1C54] dark:text-[#F5EFFB] font-medium tracking-tight">
+          Where I'm Growing <span className="text-[#8B5CF6] dark:text-[#A78BFA]">🎓</span>
         </h2>
-        <p className="text-sm sm:text-base text-[#2D2633]/75 max-w-xl mx-auto leading-relaxed">
+        <p className="text-sm sm:text-base text-[#2D2633]/75 dark:text-[#C5B9D3] max-w-xl mx-auto leading-relaxed">
           Real-world industry experience paired with academic excellence at Staffordshire University &amp; APIIT Sri Lanka.
         </p>
       </div>
@@ -196,8 +196,8 @@ export default function Experience() {
             onClick={() => setActiveTab(tab.id)}
             className={`px-5 py-2.5 rounded-full text-xs sm:text-[13px] font-semibold transition-all duration-300 cursor-pointer ${
               activeTab === tab.id
-                ? 'bg-[#5D3EA8] text-white shadow-md shadow-[#5D3EA8]/25 scale-105'
-                : 'bg-white/80 text-[#3B1C54] border border-[#ECE4FA] hover:bg-white hover:border-[#8B5CF6]/50'
+                ? 'bg-[#5D3EA8] dark:bg-[#8B5CF6] text-white shadow-md shadow-[#5D3EA8]/25 scale-105'
+                : 'bg-white/80 dark:bg-[#1D1629] text-[#3B1C54] dark:text-[#C5B9D3] border border-[#ECE4FA] dark:border-[#2D2140] hover:bg-white dark:hover:bg-[#261D35] hover:border-[#8B5CF6]/50'
             }`}
           >
             {tab.label}
@@ -216,35 +216,35 @@ export default function Experience() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="bg-[#FAF8FE] border border-[#ECE4FA] rounded-[32px] p-6 sm:p-8 lg:p-10 shadow-2xs hover:shadow-md hover:border-[#8B5CF6]/50 transition-all duration-300 relative overflow-hidden group"
+              className="bg-[#FAF8FE] dark:bg-[#1D1629] border border-[#ECE4FA] dark:border-[#2D2140] rounded-[32px] p-6 sm:p-8 lg:p-10 shadow-2xs hover:shadow-md hover:border-[#8B5CF6]/50 dark:hover:border-[#A78BFA]/50 transition-all duration-300 relative overflow-hidden group"
               whileHover={{ y: -3 }}
             >
               {/* Top Row: Badge, Role, Organization & Period */}
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 pb-5 border-b border-[#ECE4FA]">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 pb-5 border-b border-[#ECE4FA] dark:border-[#2D2140]">
                 <div className="space-y-1.5">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-xl p-2 rounded-xl bg-white border border-[#EDE4FA] shadow-2xs select-none">
+                    <span className="text-xl p-2 rounded-xl bg-white dark:bg-[#261D35] border border-[#EDE4FA] dark:border-[#2D2140] shadow-2xs select-none">
                       {item.icon}
                     </span>
                     <span className="px-3 py-1 rounded-full bg-[#5D3EA8] text-white text-[9.5px] font-bold tracking-widest uppercase shadow-xs">
                       {item.badge}
                     </span>
-                    <span className="text-xs text-[#8B6EED] font-semibold">
+                    <span className="text-xs text-[#8B6EED] dark:text-[#C4B5FD] font-semibold">
                       {item.highlight}
                     </span>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#3B1C54] pt-1">
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#3B1C54] dark:text-[#F5EFFB] pt-1">
                     {item.role}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#5D3EA8] font-medium flex flex-wrap items-center gap-2">
+                  <p className="text-xs sm:text-sm text-[#5D3EA8] dark:text-[#C4B5FD] font-medium flex flex-wrap items-center gap-2">
                     <span className="font-bold">{item.organization}</span>
-                    <span className="text-xs text-[#8B5CF6]">•</span>
-                    <span className="text-xs text-[#2D2633]/70">{item.location}</span>
+                    <span className="text-xs text-[#8B5CF6] dark:text-[#A78BFA]">•</span>
+                    <span className="text-xs text-[#2D2633]/70 dark:text-[#C5B9D3]/70">{item.location}</span>
                   </p>
                 </div>
 
-                <div className="px-4 py-2 rounded-full bg-white border border-[#DDD3F5] text-xs font-bold text-[#5D3EA8] shadow-2xs shrink-0">
+                <div className="px-4 py-2 rounded-full bg-white dark:bg-[#261D35] border border-[#DDD3F5] dark:border-[#2D2140] text-xs font-bold text-[#5D3EA8] dark:text-[#C4B5FD] shadow-2xs shrink-0">
                   📅 {item.period}
                 </div>
               </div>
@@ -255,9 +255,9 @@ export default function Experience() {
                   {item.bullets.map((bullet, i) => (
                     <li 
                       key={i}
-                      className="flex items-start gap-2.5 text-xs sm:text-[13px] text-[#2D2633]/85 leading-relaxed font-medium"
+                      className="flex items-start gap-2.5 text-xs sm:text-[13px] text-[#2D2633]/85 dark:text-[#C5B9D3] leading-relaxed font-medium"
                     >
-                      <span className="text-[#8B5CF6] text-xs mt-0.5 select-none shrink-0">✦</span>
+                      <span className="text-[#8B5CF6] dark:text-[#A78BFA] text-xs mt-0.5 select-none shrink-0">✦</span>
                       <span>{bullet}</span>
                     </li>
                   ))}
@@ -268,7 +268,7 @@ export default function Experience() {
                   {item.tags.map((tag) => (
                     <span 
                       key={tag}
-                      className="text-[10px] font-semibold text-[#3B1C54] bg-white border border-[#ECE4FA] hover:border-[#8B5CF6]/40 px-2.5 py-1 rounded-full shadow-2xs"
+                      className="text-[10px] font-semibold text-[#3B1C54] dark:text-[#F5EFFB] bg-white dark:bg-[#261D35] border border-[#ECE4FA] dark:border-[#2D2140] hover:border-[#8B5CF6]/40 px-2.5 py-1 rounded-full shadow-2xs"
                     >
                       {tag}
                     </span>
@@ -282,20 +282,20 @@ export default function Experience() {
 
       {/* ACADEMIC REFERENCES STRIP (From CV) */}
       <motion.div 
-        className="mt-14 bg-white/85 backdrop-blur-md border border-[#ECE4FA] rounded-[32px] p-6 sm:p-8 shadow-sm relative overflow-hidden z-10 space-y-5"
+        className="mt-14 bg-white/85 dark:bg-[#1D1629] backdrop-blur-md border border-[#ECE4FA] dark:border-[#2D2140] rounded-[32px] p-6 sm:p-8 shadow-sm relative overflow-hidden z-10 space-y-5"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 pb-4 border-b border-[#ECE4FA]">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 pb-4 border-b border-[#ECE4FA] dark:border-[#2D2140]">
           <div className="flex items-center gap-2">
             <span className="text-lg select-none">👥</span>
-            <h3 className="text-base sm:text-lg font-serif font-bold text-[#3B1C54]">
+            <h3 className="text-base sm:text-lg font-serif font-bold text-[#3B1C54] dark:text-[#F5EFFB]">
               Academic &amp; Professional References
             </h3>
           </div>
-          <span className="text-xs font-semibold text-[#8B6EED] uppercase tracking-wider">
+          <span className="text-xs font-semibold text-[#8B6EED] dark:text-[#C4B5FD] uppercase tracking-wider">
             APIIT Sri Lanka Faculty
           </span>
         </div>
@@ -304,23 +304,23 @@ export default function Experience() {
           {references.map((ref) => (
             <div 
               key={ref.name}
-              className="p-4 rounded-2xl bg-[#FAF8FE] border border-[#ECE4FA] flex flex-col justify-between gap-2"
+              className="p-4 rounded-2xl bg-[#FAF8FE] dark:bg-[#17111F] border border-[#ECE4FA] dark:border-[#2D2140] flex flex-col justify-between gap-2"
             >
               <div>
-                <h4 className="text-sm font-serif font-bold text-[#3B1C54]">
+                <h4 className="text-sm font-serif font-bold text-[#3B1C54] dark:text-[#F5EFFB]">
                   {ref.name}
                 </h4>
-                <p className="text-xs text-[#8B6EED] font-semibold">
+                <p className="text-xs text-[#8B6EED] dark:text-[#C4B5FD] font-semibold">
                   {ref.role} • {ref.institution}
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center gap-3 pt-2 text-[11px] text-[#2D2633]/80 border-t border-[#ECE4FA]">
+              <div className="flex flex-wrap items-center gap-3 pt-2 text-[11px] text-[#2D2633]/80 dark:text-[#C5B9D3] border-t border-[#ECE4FA] dark:border-[#2D2140]">
                 <span className="flex items-center gap-1">
                   📞 {ref.phone}
                 </span>
                 <span className="flex items-center gap-1">
-                  ✉️ <a href={`mailto:${ref.email}`} className="text-[#5D3EA8] hover:underline font-semibold">{ref.email}</a>
+                  ✉️ <a href={`mailto:${ref.email}`} className="text-[#5D3EA8] dark:text-[#A78BFA] hover:underline font-semibold">{ref.email}</a>
                 </span>
               </div>
             </div>

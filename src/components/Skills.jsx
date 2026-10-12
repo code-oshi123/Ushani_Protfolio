@@ -125,13 +125,13 @@ export default function Skills() {
 
       {/* Section Header */}
       <div className="text-center space-y-3 mb-12 sm:mb-16 relative z-10">
-        <span className="text-[12px] tracking-[0.28em] font-semibold text-[#8B6EED] uppercase block">
+        <span className="text-[12px] tracking-[0.28em] font-semibold text-[#8B6EED] dark:text-[#C4B5FD] uppercase block">
           TECHNICAL TOOLKIT ✦
         </span>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#3B1C54] font-medium tracking-tight">
-          Skills &amp; Certifications <span className="text-[#8B5CF6]">💻</span>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#3B1C54] dark:text-[#F5EFFB] font-medium tracking-tight">
+          Skills &amp; Certifications <span className="text-[#8B5CF6] dark:text-[#A78BFA]">💻</span>
         </h2>
-        <p className="text-sm sm:text-base text-[#2D2633]/75 max-w-xl mx-auto leading-relaxed">
+        <p className="text-sm sm:text-base text-[#2D2633]/75 dark:text-[#C5B9D3] max-w-xl mx-auto leading-relaxed">
           A verified technical foundation spanning testing methodologies, programming languages, and industry certifications.
         </p>
       </div>
@@ -149,8 +149,8 @@ export default function Skills() {
             onClick={() => setActiveTab(tab.id)}
             className={`px-5 py-2.5 rounded-full text-xs font-semibold transition-all duration-300 cursor-pointer ${
               activeTab === tab.id
-                ? 'bg-[#5D3EA8] text-white shadow-md shadow-[#5D3EA8]/25 scale-105'
-                : 'bg-white/80 text-[#3B1C54] border border-[#ECE4FA] hover:bg-white hover:border-[#8B5CF6]/50'
+                ? 'bg-[#5D3EA8] dark:bg-[#8B5CF6] text-white shadow-md shadow-[#5D3EA8]/25 scale-105'
+                : 'bg-white/80 dark:bg-[#1D1629] text-[#3B1C54] dark:text-[#C5B9D3] border border-[#ECE4FA] dark:border-[#2D2140] hover:bg-white dark:hover:bg-[#261D35] hover:border-[#8B5CF6]/50'
             }`}
           >
             {tab.label}
@@ -169,31 +169,31 @@ export default function Skills() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.4, delay: idx * 0.08 }}
-              className="bg-[#FAF8FE] border border-[#ECE4FA] hover:border-[#8B5CF6]/60 p-7 sm:p-8 rounded-[32px] shadow-2xs hover:shadow-[0_16px_35px_rgba(139,92,246,0.12)] transition-all duration-300 flex flex-col justify-between group"
+              className="bg-[#FAF8FE] dark:bg-[#1D1629] border border-[#ECE4FA] dark:border-[#2D2140] hover:border-[#8B5CF6]/60 dark:hover:border-[#A78BFA]/60 p-7 sm:p-8 rounded-[32px] shadow-2xs hover:shadow-[0_16px_35px_rgba(139,92,246,0.12)] transition-all duration-300 flex flex-col justify-between group"
               whileHover={{ y: -6 }}
             >
               <div className="space-y-6">
                 {/* Category Header */}
-                <div className="space-y-2 pb-4 border-b border-[#ECE4FA]">
+                <div className="space-y-2 pb-4 border-b border-[#ECE4FA] dark:border-[#2D2140]">
                   <div className="flex items-center gap-3">
                     {/* Icon with gentle scaling & rotation on hover */}
                     <motion.span 
-                      className="text-2xl p-2.5 rounded-2xl bg-white border border-[#EDE4FA] shadow-2xs select-none inline-block origin-center"
+                      className="text-2xl p-2.5 rounded-2xl bg-white dark:bg-[#261D35] border border-[#EDE4FA] dark:border-[#2D2140] shadow-2xs select-none inline-block origin-center"
                       whileHover={{ scale: 1.25, rotate: 12 }}
                       transition={{ type: "spring", stiffness: 350, damping: 12 }}
                     >
                       {cat.icon}
                     </motion.span>
                     <div>
-                      <h3 className="text-lg sm:text-xl font-serif font-bold text-[#3B1C54] group-hover:text-[#5D3EA8] transition-colors">
+                      <h3 className="text-lg sm:text-xl font-serif font-bold text-[#3B1C54] dark:text-[#F5EFFB] group-hover:text-[#5D3EA8] dark:group-hover:text-[#A78BFA] transition-colors">
                         {cat.title}
                       </h3>
-                      <p className="text-[11px] text-[#8B6EED] font-semibold">
+                      <p className="text-[11px] text-[#8B6EED] dark:text-[#C4B5FD] font-semibold">
                         {cat.subtitle}
                       </p>
                     </div>
                   </div>
-                  <p className="text-xs text-[#2D2633]/70 leading-relaxed pt-1">
+                  <p className="text-xs text-[#2D2633]/70 dark:text-[#C5B9D3] leading-relaxed pt-1">
                     {cat.description}
                   </p>
                 </div>
@@ -203,10 +203,10 @@ export default function Skills() {
                   {cat.skills.map((skill) => (
                     <motion.li 
                       key={skill}
-                      className="flex items-center gap-2.5 text-xs sm:text-[13px] text-[#2D2633]/85 font-medium group-hover/item:text-[#3B1C54] transition-colors"
+                      className="flex items-center gap-2.5 text-xs sm:text-[13px] text-[#2D2633]/85 dark:text-[#C5B9D3] font-medium group-hover/item:text-[#3B1C54] dark:group-hover/item:text-[#F5EFFB] transition-colors"
                       whileHover={{ x: 3 }}
                     >
-                      <span className="w-4 h-4 rounded-full bg-white border border-[#DDD3F5] text-[#8B5CF6] font-bold text-[10px] flex items-center justify-center shrink-0 shadow-2xs">
+                      <span className="w-4 h-4 rounded-full bg-white dark:bg-[#261D35] border border-[#DDD3F5] dark:border-[#2D2140] text-[#8B5CF6] dark:text-[#A78BFA] font-bold text-[10px] flex items-center justify-center shrink-0 shadow-2xs">
                         ✓
                       </span>
                       <span>{skill}</span>
@@ -216,7 +216,7 @@ export default function Skills() {
               </div>
 
               {/* Bottom Accent Decor with Animated Counter */}
-              <div className="pt-6 mt-4 border-t border-[#ECE4FA]/80 flex justify-between items-center text-[#8B6EED] text-xs">
+              <div className="pt-6 mt-4 border-t border-[#ECE4FA]/80 dark:border-[#2D2140] flex justify-between items-center text-[#8B6EED] dark:text-[#C4B5FD] text-xs">
                 <span className="tracking-widest uppercase text-[10px] font-bold font-mono flex items-center gap-1">
                   <AnimatedCounter target={cat.skills.length} /> SPECIALIZATIONS
                 </span>
@@ -229,20 +229,20 @@ export default function Skills() {
 
       {/* CERTIFICATIONS STRIP (Official from CV) */}
       <motion.div 
-        className="mt-12 bg-white/85 backdrop-blur-md border border-[#ECE4FA] rounded-[32px] p-6 sm:p-8 shadow-sm relative overflow-hidden z-10 space-y-6"
+        className="mt-12 bg-white/85 dark:bg-[#1D1629] backdrop-blur-md border border-[#ECE4FA] dark:border-[#2D2140] rounded-[32px] p-6 sm:p-8 shadow-sm relative overflow-hidden z-10 space-y-6"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 pb-4 border-b border-[#ECE4FA]">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 pb-4 border-b border-[#ECE4FA] dark:border-[#2D2140]">
           <div className="flex items-center gap-2">
             <span className="text-lg select-none">📜</span>
-            <h3 className="text-base sm:text-lg font-serif font-bold text-[#3B1C54]">
+            <h3 className="text-base sm:text-lg font-serif font-bold text-[#3B1C54] dark:text-[#F5EFFB]">
               Industry Certifications &amp; Training
             </h3>
           </div>
-          <span className="text-xs font-semibold text-[#8B6EED] uppercase tracking-wider font-mono">
+          <span className="text-xs font-semibold text-[#8B6EED] dark:text-[#C4B5FD] uppercase tracking-wider font-mono">
             <AnimatedCounter target={certifications.length} /> Verified Credentials
           </span>
         </div>
@@ -251,7 +251,7 @@ export default function Skills() {
           {certifications.map((cert) => (
             <motion.div
               key={cert.name}
-              className="p-3.5 rounded-2xl bg-[#FAF8FE] border border-[#ECE4FA] hover:border-[#8B5CF6]/50 hover:bg-white transition-all duration-200 text-center flex flex-col items-center justify-center gap-1.5 shadow-2xs group cursor-default"
+              className="p-3.5 rounded-2xl bg-[#FAF8FE] dark:bg-[#17111F] border border-[#ECE4FA] dark:border-[#2D2140] hover:border-[#8B5CF6]/50 hover:bg-white dark:hover:bg-[#261D35] transition-all duration-200 text-center flex flex-col items-center justify-center gap-1.5 shadow-2xs group cursor-default"
               whileHover={{ y: -4, scale: 1.04 }}
             >
               <motion.span 
@@ -261,10 +261,10 @@ export default function Skills() {
                 {cert.icon}
               </motion.span>
               <div className="space-y-0.5">
-                <h4 className="text-xs font-bold text-[#3B1C54] line-clamp-1">
+                <h4 className="text-xs font-bold text-[#3B1C54] dark:text-[#F5EFFB] line-clamp-1">
                   {cert.name}
                 </h4>
-                <p className="text-[10px] text-[#2D2633]/65 leading-tight">
+                <p className="text-[10px] text-[#2D2633]/65 dark:text-[#C5B9D3] leading-tight">
                   {cert.issuer}
                 </p>
               </div>
