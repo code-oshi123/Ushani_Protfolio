@@ -74,7 +74,7 @@ export default function Work() {
     },
     {
       id: "03",
-      category: "website",
+      category: "systems",
       title: " Urban Harvest 101",
       role: "Developer & QA",
       tagline: "Inventory & Prescription Billing Platform",
@@ -189,7 +189,7 @@ export default function Work() {
           {[
             { id: "all", label: "All Projects" },
             { id: "web", label: "🌐 Web & PWA" },
-            { id: "mobile", label: "📱 Mobile Apps" },
+            // { id: "mobile", label: "📱 Mobile Apps" },
             { id: "systems", label: "💻 Systems" },
           ].map((tab) => (
             <button
